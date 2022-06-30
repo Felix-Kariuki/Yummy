@@ -2,9 +2,12 @@
 A food recipes App Built with Jetpack Compose . The app uses room for local caching to facilitate offline support and follows the MVVM Clean Architectural pattern
 
 ## Screenshots
-<img src="/screenshorts/welcome.png" width="260">&emsp;
-<img src="/screenshorts/home.png" width="260">
-<img src="/screenshorts/details.png" width="260">
+<img src="/screenshorts/welcome.png" width="360">&emsp;
+<img src="/screenshorts/home.png" width="360">&emsp;
+<img src="/screenshorts/details.png" width="360">
+
+## demo
+<img src="/screenshorts/demo.png" width="360">
 
 ## Architecture
 <!--<img src="/screenshorts/architecture.png"  height = "350" width="460">-->
@@ -34,6 +37,9 @@ A food recipes App Built with Jetpack Compose . The app uses room for local cach
 
 * [Accompanist-SwipeRefresh](https://google.github.io/accompanist/swiperefresh/) - A library which provides a layout which provides the swipe-to-refresh UX pattern, similar to Android's SwipeRefreshLayout.
 
+## Data Source
+This application fetches its data from the [The Meal Db](https://www.themealdb.com/api.php). Find the Documentation by following this [link](https://www.themealdb.com/api.php).
+
 ## Author
 Felix Kariuki
 
@@ -44,3 +50,33 @@ Do Reach Out :
   * [Twitter](https://twitter.com/felixkariuki_)
 
   * [LinkedIn](https://www.linkedin.com/in/felix-kariuki/)
+  
+  
+  ## License and Copyright
+
+[MIT LICENSE](LICENSE)
+  
+  ```
+  MIT License
+
+Copyright (c) 2022 Felix m Kariuki
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+  
+  ```
