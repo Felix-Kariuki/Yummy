@@ -1,9 +1,10 @@
 package com.flexcode.yummy.data.local.entity
 
 import androidx.room.Entity
+import androidx.room.Index
 import androidx.room.PrimaryKey
 
-@Entity
+@Entity(indices = [Index(value = ["strSource"], unique = true)])
 data class MealsEntity(
     @PrimaryKey val idMeal: Int? = null,
     var strMeal: String? = null,
