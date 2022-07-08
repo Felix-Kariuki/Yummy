@@ -6,8 +6,8 @@ A food recipes App Built with Jetpack Compose . The app uses room for local cach
 <img src="/screenshorts/home.png" width="360">&emsp;
 <img src="/screenshorts/details.png" width="360">
 
-## demo
-<img src="/screenshorts/demo.png" width="360">
+## Demo
+<!--<img src="/screenshorts/demo.png" width="360">-->
 
 ## Architecture
 <!--<img src="/screenshorts/architecture.png"  height = "350" width="460">-->
