@@ -11,8 +11,9 @@ import com.flexcode.yummy.utils.Resource
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import java.io.IOException
+import javax.inject.Inject
 
-class MealsRepositoryImpl(
+class MealsRepositoryImpl @Inject constructor(
     private val dao: MealsDao,
     private val apiService: ApiService,
 ) : MealsRepository {
