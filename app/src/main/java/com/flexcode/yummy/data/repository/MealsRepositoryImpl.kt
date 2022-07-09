@@ -11,15 +11,16 @@ import com.flexcode.yummy.utils.Resource
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import java.io.IOException
+import javax.inject.Inject
 
-class MealsRepositoryImpl(
+class MealsRepositoryImpl @Inject constructor(
     private val dao: MealsDao,
-    private val apiService: ApiService
+    private val apiService: ApiService,
 ) : MealsRepository {
 
     override suspend fun getMeals(
         meal: String,
-        fetchFromRemote: Boolean
+        fetchFromRemote: Boolean,
     ): Flow<Resource<List<Meals>>> {
 
         return flow {
@@ -32,7 +33,7 @@ class MealsRepositoryImpl(
             val noLocalCache = localMeals.isEmpty()
             val loadFromCache = !noLocalCache && !fetchFromRemote
 
-            if (loadFromCache){
+            if (loadFromCache) {
                 emit(Resource.Loading())
                 return@flow
             }
@@ -40,9 +41,12 @@ class MealsRepositoryImpl(
 
             try {
                 val remoteMeals = apiService.getMeals(meal)
-                emit(Resource.Success(remoteMeals.meals.map { it.toMeals() }))
-                remoteMeals.meals.map { it.strSource }.let { dao.deleteMeals(it as List<String>) }
-                dao.addMeals(remoteMeals.meals.map { it.toMealsEntity() })
+                remoteMeals.meals?.let { mealsDto ->
+                    emit(Resource.Success(mealsDto.map { it.toMeals() }))
+                    mealsDto.map { it.strSource }
+                        .let { dao.deleteMeals(it as List<String>) }
+                    dao.addMeals(mealsDto.map { it.toMealsEntity() })
+                }
             } catch (e: HttpException) {
                 Resource.Error(
                     message = "${e.message}",

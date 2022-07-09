@@ -11,11 +11,12 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import retrofit2.HttpException
 import java.io.IOException
+import javax.inject.Inject
 
-class CategoriesRepositoryImpl(
+class CategoriesRepositoryImpl @Inject constructor(
     private val apiService: ApiService,
-    private val dao: MealsDao
-) : CategoriesRepository{
+    private val dao: MealsDao,
+) : CategoriesRepository {
 
     override suspend fun getCategories(): Flow<Resource<List<Categories>>> = flow {
         emit(Resource.Loading())
@@ -28,14 +29,14 @@ class CategoriesRepositoryImpl(
             val response = apiService.getCategories()
             dao.deleteCategories()
             dao.insertCategories(response.categories.map { it.toCategoriesEntity() })
-        }catch (e: HttpException) {
+        } catch (e: HttpException) {
             emit(
                 Resource.Error(
                     message = "Something went wrong ${e.message}",
                     data = localCategories.map { it.toCategories() }
                 )
             )
-        }catch (e: IOException){
+        } catch (e: IOException) {
             emit(
                 Resource.Error(
                     message = "ERROR!!, check your internet connection!",

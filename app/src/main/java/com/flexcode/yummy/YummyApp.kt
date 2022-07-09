@@ -7,9 +7,10 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import timber.log.Timber
 
 @HiltAndroidApp
-class YummyApp: Application(){
+class YummyApp : Application() {
     override fun onCreate() {
         super.onCreate()
-        Timber.plant(Timber.DebugTree())
+        if (BuildConfig.DEBUG)
+            Timber.plant(Timber.DebugTree())
     }
 }

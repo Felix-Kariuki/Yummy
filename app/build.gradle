@@ -19,12 +19,12 @@ kotlin {
 }
 
 android {
-    compileSdk 32
+    compileSdk rootProject.COMPILE_SDK
 
     defaultConfig {
         applicationId "com.flexcode.yummy"
-        minSdk 21
-        targetSdk 32
+        minSdk rootProject.MIN_SDK
+        targetSdk rootProject.TARGET_SDK
         versionCode 1
         versionName "1.0"
 
@@ -63,71 +63,68 @@ android {
 
 dependencies {
 
-
-    implementation 'androidx.core:core-ktx:1.7.0'
+    // Support Libraries
+    implementation "androidx.core:core-ktx:$androidx_ktx"
     implementation "androidx.compose.ui:ui:$compose_version"
     implementation "androidx.compose.material:material:$compose_version"
     implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
-    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1'
-    implementation 'androidx.activity:activity-compose:1.3.1'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    implementation "androidx.activity:activity-compose:$activity_compose"
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
     debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_version"
 
-    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.4.1"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_ktx"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycle_compose"
+
     implementation "androidx.compose.material:material-icons-extended:$compose_version"
-    implementation "com.google.accompanist:accompanist-flowlayout:0.17.0"
-    implementation 'androidx.paging:paging-compose:1.0.0-alpha14'
-    implementation "androidx.activity:activity-compose:1.6.0-alpha01"
-    implementation "com.google.accompanist:accompanist-swiperefresh:0.24.2-alpha"
+    implementation "com.google.accompanist:accompanist-flowlayout:$flow_layout"
+    implementation "androidx.paging:paging-compose:$paging_compose"
+    implementation "com.google.accompanist:accompanist-swiperefresh:$swipe_refresh"
 
     // Navigation
-    ksp 'io.github.raamcosta.compose-destinations:ksp:1.4.2-beta'
-    implementation 'io.github.raamcosta.compose-destinations:core:1.4.2-beta'
+    ksp "io.github.raamcosta.compose-destinations:ksp:$navigation_compose"
+    implementation "io.github.raamcosta.compose-destinations:core:$navigation_compose"
 
     // Coil
-    implementation "io.coil-kt:coil-compose:2.1.0"
+    implementation "io.coil-kt:coil-compose:$coil_compose"
 
     //Dagger - Hilt
-    implementation "com.google.dagger:hilt-android:2.40.5"
-    kapt "com.google.dagger:hilt-android-compiler:2.40.5"
+    implementation "com.google.dagger:hilt-android:$dagger_hilt"
+    kapt "com.google.dagger:hilt-android-compiler:$dagger_hilt"
     //implementation "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03"
-    kapt "androidx.hilt:hilt-compiler:1.0.0"
-    implementation 'androidx.hilt:hilt-navigation-compose:1.0.0'
+    kapt "androidx.hilt:hilt-compiler:$hilt_compiler"
+    implementation "androidx.hilt:hilt-navigation-compose:$hilt_navigation"
 
     // Retrofit
-    implementation 'com.squareup.retrofit2:retrofit:2.6.0'
-    implementation 'com.squareup.retrofit2:converter-gson:2.6.0'
-    implementation "com.squareup.okhttp3:logging-interceptor:4.9.1"
+    implementation "com.squareup.retrofit2:retrofit:$retrofit"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_logging"
 
     // Room
-    implementation "androidx.room:room-runtime:2.4.2"
-    kapt "androidx.room:room-compiler:2.4.2"
-    implementation "androidx.room:room-ktx:2.4.2"
+    implementation "androidx.room:room-runtime:$room"
+    kapt "androidx.room:room-compiler:$room"
+    implementation "androidx.room:room-ktx:$room"
 
     //Timber logging
-    implementation 'com.jakewharton.timber:timber:5.0.1'
+    implementation "com.jakewharton.timber:timber:$timber"
 
     //shimmer
-    implementation 'com.facebook.shimmer:shimmer:0.5.0'
+    implementation "com.facebook.shimmer:shimmer:$shimmer"
 
     // Testing
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    testImplementation "junit:junit:$junit"
+    androidTestImplementation "androidx.test.ext:junit:$androidx_junit"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$androidx_espresso"
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
     debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_version"
-    androidTestImplementation "junit:junit:4.13.2"
-    androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.1"
-    androidTestImplementation "androidx.arch.core:core-testing:2.1.0"
-    androidTestImplementation "com.google.truth:truth:1.1.3"
-    androidTestImplementation 'androidx.test:core-ktx:1.4.0'
-    androidTestImplementation "com.squareup.okhttp3:mockwebserver:4.9.1"
-    testImplementation 'org.mockito:mockito-android:3.2.4'
-    androidTestImplementation 'org.mockito:mockito-android:3.2.4'
-    androidTestImplementation 'com.google.dagger:hilt-android-testing:2.38.1'
-    kaptAndroidTest 'com.google.dagger:hilt-android-compiler:2.38.1'
+    androidTestImplementation "junit:junit:$junit"
+    androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines_test"
+    androidTestImplementation "androidx.arch.core:core-testing:$arch_test"
+    androidTestImplementation "com.google.truth:truth:$google_truth"
+    androidTestImplementation "androidx.test:core-ktx:$androidx_ktx_test"
+    androidTestImplementation "com.squareup.okhttp3:mockwebserver:$okhttp_mockwebserver"
+    testImplementation "org.mockito:mockito-android:$mockito"
+    androidTestImplementation "org.mockito:mockito-android:$mockito"
+    androidTestImplementation "com.google.dagger:hilt-android-testing:$hilt_test"
+    kaptAndroidTest "com.google.dagger:hilt-android-compiler:$hilt_test"
 }
