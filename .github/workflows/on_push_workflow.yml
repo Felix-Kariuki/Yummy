@@ -45,4 +45,4 @@ jobs: # groups the jobs to be executed in this workflow
         uses: actions/upload-artifact@v2 # Uses upload-artifact@v2 action to upload lint report artifact
         with: # Define extra parameters
           name: lint_report.html # Name of the artifact to be uploaded
-          path: app/build/reports/lint-results-debug.html # Specifies the path where the artifact to be uploaded is located
+          path: app/build/reports/lint-results-debug.html
