@@ -22,6 +22,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
+import coil.size.Size
 import com.flexcode.yummy.R
 import com.flexcode.yummy.domain.models.Meals
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
@@ -69,8 +70,20 @@ fun DetailsItem(
         }
         Column(modifier = modifier
             .fillMaxWidth()
-            .height(200.dp), horizontalAlignment = CenterHorizontally) {
+            .height(300.dp), horizontalAlignment = CenterHorizontally) {
+            val model = ImageRequest.Builder(LocalContext.current)
+                .data("${meals.strMealThumb}")
+                .size(Size.ORIGINAL)
+                .crossfade(true)
+                .build()
+            val painter = rememberAsyncImagePainter(model)
             Image(
+                modifier = Modifier.fillMaxWidth(),
+                painter = painter,
+                contentDescription = null,
+                contentScale = ContentScale.FillWidth
+            )
+            /*Image(
                 painter = rememberAsyncImagePainter(
                     ImageRequest.Builder(LocalContext.current)
                         .data(data = meals.strMealThumb)
@@ -82,7 +95,7 @@ fun DetailsItem(
                 contentDescription = null,
                 modifier = modifier.align(CenterHorizontally),
                 contentScale = ContentScale.Fit
-            )
+            )*/
 
         }
         Text(

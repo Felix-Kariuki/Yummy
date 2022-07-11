@@ -1,4 +1,4 @@
-package com.flexcode.yummy.presentation
+package com.flexcode.yummy.presentation.meals_screen
 
 import androidx.compose.runtime.State
 import androidx.compose.runtime.getValue
@@ -16,7 +16,6 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 

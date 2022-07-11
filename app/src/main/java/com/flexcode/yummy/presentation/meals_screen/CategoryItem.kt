@@ -1,4 +1,4 @@
-package com.flexcode.yummy.presentation
+package com.flexcode.yummy.presentation.meals_screen
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -17,35 +17,22 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
-import com.flexcode.yummy.domain.models.Meals
-import com.flexcode.yummy.presentation.destinations.MealDetailsScreenDestination
-import com.flexcode.yummy.presentation.destinations.MealsScreenDestination
-import com.ramcosta.composedestinations.navigation.DestinationsNavigator
+import com.flexcode.yummy.domain.models.Categories
 
 @Composable
-fun MealItem(
-    meals: Meals,
-    modifier: Modifier = Modifier,
-    navigator: DestinationsNavigator
+fun CategoryItem(
+    category: Categories,
+    modifier: Modifier = Modifier
 ) {
     Card(
         modifier = modifier
             .padding(4.dp)
             .clickable {
-                /*navigator.navigate(
-                    MealDetailsScreenDestination(
-                        Meals(idMeal = meals.idMeal)
-                    )
-                ){
-                    popUpTo(route = MealsScreenDestination.routeId){
-                        inclusive = true
-                    }
-                }*/
-                navigator.navigate(MealDetailsScreenDestination(meals))
+
             }
         ,
         shape = RoundedCornerShape(16.dp),
-        elevation = 10.dp
+        elevation = 7.dp
     ) {
         Column(
             modifier = Modifier,
@@ -54,13 +41,13 @@ fun MealItem(
 
             AsyncImage(
                 model = ImageRequest.Builder(LocalContext.current)
-                    .data("${meals.strMealThumb}")
+                    .data("${category.strCategoryThumb}")
                     .crossfade(true)
                     .build(),
-                contentDescription = "${meals.strMeal}",
+                contentDescription = "${category.strCategory}",
                 contentScale = ContentScale.Inside,
                 modifier = modifier
-                    .height(150.dp)
+                    .height(100.dp)
                     .fillMaxWidth()
                     .align(Alignment.CenterHorizontally)
                     .clickable {
@@ -75,7 +62,7 @@ fun MealItem(
                 .fillMaxWidth()
                 .padding(8.dp)) {
                 Text(
-                    text = "${meals.strMeal}",
+                    text = "${category.strCategory}",
                     fontWeight = FontWeight.Light,
                     fontSize = 16.sp,
                     color = MaterialTheme.colors.onBackground,
@@ -83,7 +70,6 @@ fun MealItem(
                     maxLines = 1,
                 )
             }
-
 
         }
     }

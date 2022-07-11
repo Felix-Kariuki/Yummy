@@ -1,4 +1,4 @@
-package com.flexcode.yummy.presentation
+package com.flexcode.yummy.presentation.meals_screen
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -24,7 +24,6 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.flexcode.yummy.R
 import com.flexcode.yummy.domain.models.Categories
-import com.flexcode.yummy.presentation.destinations.MealDetailsScreenDestination
 import com.flexcode.yummy.ui.theme.BackgroundColor
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState

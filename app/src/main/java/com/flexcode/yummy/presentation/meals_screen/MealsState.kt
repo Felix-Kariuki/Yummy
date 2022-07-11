@@ -1,4 +1,4 @@
-package com.flexcode.yummy.presentation
+package com.flexcode.yummy.presentation.meals_screen
 
 import com.flexcode.yummy.domain.models.Categories
 import com.flexcode.yummy.domain.models.Meals

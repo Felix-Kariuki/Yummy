@@ -1,5 +1,7 @@
-package com.flexcode.yummy.presentation
+package com.flexcode.yummy.presentation.meals_screen
 
+
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -16,45 +18,74 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
+import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
-import com.flexcode.yummy.domain.models.Categories
+import coil.size.Size
+import coil.size.Size.Companion.ORIGINAL
+import com.flexcode.yummy.domain.models.Meals
+import com.flexcode.yummy.presentation.destinations.MealDetailsScreenDestination
+import com.flexcode.yummy.presentation.destinations.MealsScreenDestination
+import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 
 @Composable
-fun CategoryItem(
-    category: Categories,
-    modifier: Modifier = Modifier
+fun MealItem(
+    meals: Meals,
+    modifier: Modifier = Modifier,
+    navigator: DestinationsNavigator
 ) {
     Card(
         modifier = modifier
             .padding(4.dp)
             .clickable {
-
+                /*navigator.navigate(
+                    MealDetailsScreenDestination(
+                        Meals(idMeal = meals.idMeal)
+                    )
+                ){
+                    popUpTo(route = MealsScreenDestination.routeId){
+                        inclusive = true
+                    }
+                }*/
+                navigator.navigate(MealDetailsScreenDestination(meals))
             }
         ,
         shape = RoundedCornerShape(16.dp),
-        elevation = 7.dp
+        elevation = 10.dp
     ) {
         Column(
             modifier = Modifier,
             horizontalAlignment = Alignment.Start
         ) {
 
-            AsyncImage(
+            val model = ImageRequest.Builder(LocalContext.current)
+                .data("${meals.strMealThumb}")
+                .size(Size.ORIGINAL)
+                .crossfade(true)
+                .build()
+            val painter = rememberAsyncImagePainter(model)
+            Image(
+                modifier = Modifier.fillMaxWidth(),
+                painter = painter,
+                contentDescription = null,
+                contentScale = ContentScale.FillWidth
+            )
+
+            /*AsyncImage(
                 model = ImageRequest.Builder(LocalContext.current)
-                    .data("${category.strCategoryThumb}")
+                    .data("${meals.strMealThumb}")
                     .crossfade(true)
                     .build(),
-                contentDescription = "${category.strCategory}",
+                contentDescription = "${meals.strMeal}",
                 contentScale = ContentScale.Inside,
                 modifier = modifier
-                    .height(100.dp)
+                    .height(150.dp)
                     .fillMaxWidth()
                     .align(Alignment.CenterHorizontally)
                     .clickable {
 
                     }
                     .wrapContentSize(),
-            )
+            )*/
 
             Spacer(modifier = Modifier.height(8.dp))
 
@@ -62,7 +93,7 @@ fun CategoryItem(
                 .fillMaxWidth()
                 .padding(8.dp)) {
                 Text(
-                    text = "${category.strCategory}",
+                    text = "${meals.strMeal}",
                     fontWeight = FontWeight.Light,
                     fontSize = 16.sp,
                     color = MaterialTheme.colors.onBackground,
@@ -70,6 +101,7 @@ fun CategoryItem(
                     maxLines = 1,
                 )
             }
+
 
         }
     }
