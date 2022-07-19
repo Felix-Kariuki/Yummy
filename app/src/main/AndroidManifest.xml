@@ -18,7 +18,7 @@
         android:theme="@style/Theme.Yummy"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".core.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.Yummy">

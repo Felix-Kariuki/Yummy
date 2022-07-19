@@ -24,7 +24,7 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.flexcode.yummy.R
 import com.flexcode.yummy.domain.models.Categories
-import com.flexcode.yummy.ui.theme.BackgroundColor
+import com.flexcode.yummy.core.ui.theme.BackgroundColor
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 import com.ramcosta.composedestinations.annotation.Destination

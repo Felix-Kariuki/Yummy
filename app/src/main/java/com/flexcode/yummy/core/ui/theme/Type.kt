@@ -1,4 +1,4 @@
-package com.flexcode.yummy.ui.theme
+package com.flexcode.yummy.core.ui.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle
