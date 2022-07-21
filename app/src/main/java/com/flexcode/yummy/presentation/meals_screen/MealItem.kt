@@ -37,15 +37,6 @@ fun MealItem(
         modifier = modifier
             .padding(4.dp)
             .clickable {
-                /*navigator.navigate(
-                    MealDetailsScreenDestination(
-                        Meals(idMeal = meals.idMeal)
-                    )
-                ){
-                    popUpTo(route = MealsScreenDestination.routeId){
-                        inclusive = true
-                    }
-                }*/
                 navigator.navigate(MealDetailsScreenDestination(meals))
             }
         ,
@@ -69,23 +60,6 @@ fun MealItem(
                 contentDescription = null,
                 contentScale = ContentScale.FillWidth
             )
-
-            /*AsyncImage(
-                model = ImageRequest.Builder(LocalContext.current)
-                    .data("${meals.strMealThumb}")
-                    .crossfade(true)
-                    .build(),
-                contentDescription = "${meals.strMeal}",
-                contentScale = ContentScale.Inside,
-                modifier = modifier
-                    .height(150.dp)
-                    .fillMaxWidth()
-                    .align(Alignment.CenterHorizontally)
-                    .clickable {
-
-                    }
-                    .wrapContentSize(),
-            )*/
 
             Spacer(modifier = Modifier.height(8.dp))
 
