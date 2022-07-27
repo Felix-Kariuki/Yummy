@@ -15,6 +15,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.flexcode.yummy.R
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.flexcode.yummy.domain.models.Categories
@@ -41,6 +42,7 @@ fun CategoryItem(
 
             AsyncImage(
                 model = ImageRequest.Builder(LocalContext.current)
+                    .placeholder(R.drawable.chips)
                     .data("${category.strCategoryThumb}")
                     .crossfade(true)
                     .build(),

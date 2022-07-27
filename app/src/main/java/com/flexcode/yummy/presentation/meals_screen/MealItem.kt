@@ -17,14 +17,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import coil.compose.AsyncImage
 import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
 import coil.size.Size
-import coil.size.Size.Companion.ORIGINAL
 import com.flexcode.yummy.domain.models.Meals
 import com.flexcode.yummy.presentation.destinations.MealDetailsScreenDestination
-import com.flexcode.yummy.presentation.destinations.MealsScreenDestination
+import com.flexcode.yummy.R
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 
 @Composable
