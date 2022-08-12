@@ -24,6 +24,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.flexcode.yummy.R
+import com.flexcode.yummy.core.ui.theme.Lato
 import com.flexcode.yummy.domain.models.Categories
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
@@ -46,11 +47,11 @@ fun MealsScreen(
 
     Column(modifier = Modifier.fillMaxSize()) {
         Text(
-            text = "What would you\nlike to cook?",
+            text = "What would you like to cook?",
             fontSize = 28.sp,
-            fontWeight = FontWeight.SemiBold,
-            fontFamily = FontFamily.Monospace,
-            modifier = Modifier.padding(8.dp)
+            modifier = Modifier.padding(16.dp).fillMaxWidth(),
+            fontFamily = MaterialTheme.typography.h1.fontFamily,
+            fontStyle = MaterialTheme.typography.h1.fontStyle,
         )
         Row(
             Modifier
@@ -69,6 +70,7 @@ fun MealsScreen(
                 placeholder = {
                     Text(
                         text = "Search",
+                        color = MaterialTheme.colors.onBackground.copy(alpha = .95f),
                     )
                 },
 
@@ -102,7 +104,7 @@ fun MealsScreen(
                             .size(24.dp),
                         painter = painterResource(id = R.drawable.ic_search),
                         contentDescription = null,
-                        tint = Color.Black
+                        tint = MaterialTheme.colors.onBackground,
                     )
                 }
             )
@@ -121,8 +123,8 @@ fun MealsScreen(
                 Text(
                     text = "Categories",
                     modifier = Modifier.padding(8.dp),
-                    fontWeight = FontWeight.SemiBold,
-                    fontSize = 18.sp
+                    style = MaterialTheme.typography.h1,
+                    fontSize = 20.sp,
                 )
                 LazyRow(
                     modifier = Modifier.fillMaxWidth(),
@@ -139,9 +141,9 @@ fun MealsScreen(
                 Spacer(modifier = Modifier.height(16.dp))
                 Text(
                     text = "Recipes",
-                    fontSize = 18.sp,
                     modifier = Modifier.padding(8.dp),
-                    fontWeight = FontWeight.SemiBold
+                   style = MaterialTheme.typography.h1,
+                    fontSize = 20.sp,
                 )
                 LazyVerticalGrid(
                     modifier = Modifier.fillMaxSize(),

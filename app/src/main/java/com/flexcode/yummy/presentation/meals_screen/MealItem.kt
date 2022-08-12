@@ -38,9 +38,9 @@ fun MealItem(
                 navigator.navigate(MealDetailsScreenDestination(meals))
             }
         ,
+        backgroundColor = MaterialTheme.colors.background,
         shape = RoundedCornerShape(16.dp),
         elevation = 10.dp,
-        backgroundColor = MaterialTheme.colors.background,
     ) {
         Column(
             modifier = Modifier,

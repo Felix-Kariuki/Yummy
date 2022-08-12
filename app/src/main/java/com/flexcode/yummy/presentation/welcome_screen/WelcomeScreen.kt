@@ -56,13 +56,12 @@ fun WelComeScreen(
         Spacer(modifier = Modifier.height(32.dp))
 
         Text(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth().padding(start = 16.dp),
             text = " It's \n Cooking \n Time ",
             fontSize = 46.sp,
             color = MaterialTheme.colors.onBackground,
-            fontWeight = FontWeight.Bold,
-            textAlign = TextAlign.Start,
-            fontFamily = FontFamily.Monospace,
+            fontFamily = MaterialTheme.typography.h1.fontFamily,
+            fontStyle = MaterialTheme.typography.h1.fontStyle,
         )
 
 
@@ -87,7 +86,7 @@ fun WelComeScreen(
         ) {
             Text(
                 "Get Started",
-                fontSize = 20.sp
+                fontSize = 20.sp,
             )
         }
     }

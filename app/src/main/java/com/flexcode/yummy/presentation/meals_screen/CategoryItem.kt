@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -38,7 +39,7 @@ fun CategoryItem(
     ) {
         Column(
             modifier = Modifier,
-            horizontalAlignment = Alignment.Start
+            horizontalAlignment = Alignment.CenterHorizontally,
         ) {
 
             AsyncImage(
@@ -63,10 +64,11 @@ fun CategoryItem(
 
             Row(modifier = Modifier
                 .fillMaxWidth()
-                .padding(8.dp)) {
+                .padding(8.dp),
+                ) {
                 Text(
                     text = "${category.strCategory}",
-                    fontWeight = FontWeight.Light,
+                    fontWeight = FontWeight.Bold,
                     fontSize = 16.sp,
                     color = MaterialTheme.colors.onBackground,
                     overflow = TextOverflow.Ellipsis,
