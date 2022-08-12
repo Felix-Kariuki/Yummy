@@ -6,6 +6,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Card
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -41,7 +42,7 @@ fun WelComeScreen(
                 .clip(RoundedCornerShape(40.dp))
                 .height(378.dp)
                 .fillMaxWidth(),
-            backgroundColor = Color.White
+            backgroundColor = MaterialTheme.colors.background
         ) {
             Image(
                 painter = painterResource(R.drawable.chef),
@@ -58,7 +59,7 @@ fun WelComeScreen(
             modifier = Modifier.fillMaxWidth(),
             text = " It's \n Cooking \n Time ",
             fontSize = 46.sp,
-            color = Color.Black,
+            color = MaterialTheme.colors.onBackground,
             fontWeight = FontWeight.Bold,
             textAlign = TextAlign.Start,
             fontFamily = FontFamily.Monospace,
@@ -80,8 +81,8 @@ fun WelComeScreen(
             ),
             shape = RoundedCornerShape(32.dp),
             colors = ButtonDefaults.buttonColors(
-                backgroundColor = ColorGreen,
-                contentColor = Color.White),
+                backgroundColor = MaterialTheme.colors.surface,
+                contentColor = MaterialTheme.colors.onSurface),
             modifier = Modifier.padding(8.dp)
         ) {
             Text(

@@ -39,7 +39,8 @@ fun MealItem(
             }
         ,
         shape = RoundedCornerShape(16.dp),
-        elevation = 10.dp
+        elevation = 10.dp,
+        backgroundColor = MaterialTheme.colors.background,
     ) {
         Column(
             modifier = Modifier,

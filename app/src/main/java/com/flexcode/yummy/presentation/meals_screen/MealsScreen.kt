@@ -12,6 +12,7 @@ import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
@@ -24,7 +25,6 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.flexcode.yummy.R
 import com.flexcode.yummy.domain.models.Categories
-import com.flexcode.yummy.core.ui.theme.BackgroundColor
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 import com.ramcosta.composedestinations.annotation.Destination
@@ -69,15 +69,16 @@ fun MealsScreen(
                 placeholder = {
                     Text(
                         text = "Search",
-                        //color = primaryGray
                     )
                 },
 
                 modifier = Modifier
                     .fillMaxWidth()
                     .background(
-                        BackgroundColor, shape = RoundedCornerShape(16.dp)
-                    ),
+                        MaterialTheme.colors.background, shape = RoundedCornerShape(16.dp)
+                    )
+                    .shadow(8.dp)
+                ,
                 shape = RoundedCornerShape(size = 8.dp),
                 keyboardOptions = KeyboardOptions(
                     capitalization = KeyboardCapitalization.Words,
@@ -86,13 +87,13 @@ fun MealsScreen(
                 ),
                 colors = TextFieldDefaults.textFieldColors(
                     textColor = Color.White,
-                    disabledTextColor = BackgroundColor,
-                    backgroundColor = BackgroundColor,
-                    focusedIndicatorColor = BackgroundColor,
-                    unfocusedIndicatorColor = BackgroundColor,
-                    disabledIndicatorColor = BackgroundColor
+                    disabledTextColor = MaterialTheme.colors.background,
+                    backgroundColor = MaterialTheme.colors.background,
+                    focusedIndicatorColor = MaterialTheme.colors.background,
+                    unfocusedIndicatorColor = MaterialTheme.colors.background,
+                    disabledIndicatorColor = MaterialTheme.colors.background,
                 ),
-                textStyle = TextStyle(color = Color.Black),
+                textStyle = TextStyle(color = MaterialTheme.colors.onBackground),
                 maxLines = 1,
                 singleLine = true,
                 leadingIcon = {

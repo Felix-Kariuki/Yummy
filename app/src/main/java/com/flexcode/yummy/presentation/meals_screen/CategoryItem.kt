@@ -33,7 +33,8 @@ fun CategoryItem(
             }
         ,
         shape = RoundedCornerShape(16.dp),
-        elevation = 7.dp
+        elevation = 7.dp,
+        backgroundColor = MaterialTheme.colors.background,
     ) {
         Column(
             modifier = Modifier,
