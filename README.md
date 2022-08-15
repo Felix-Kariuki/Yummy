@@ -1,18 +1,26 @@
 # Yummy
 A food recipes App Built with Jetpack Compose . The app uses room for local caching to facilitate offline support and follows the MVVM Clean Architectural pattern
 
-## Screenshots
-<img src="/screenshorts/welcome.png" width="360">&emsp;
-<img src="/screenshorts/home.png" width="360">&emsp;
-<img src="/screenshorts/details.png" width="360">&emsp;
-<img src="/screenshorts/detail.png" width="360">
+## **Screenshots**
+
+## Light Mode
+<img src="./screenshots/welcome_light.png" width="320">&emsp;
+<img src="./screenshots/home_light.png" width="320">&emsp;
+<img src="./screenshots/details_light.png" width="320">&emsp;
+<img src="./screenshots/details_light_alternate.png" width="320">
+
+## Dark Mode
+<img src="./screenshots/welcome_dark.png" width="320">&emsp;
+<img src="./screenshots/home_dark.png" width="320">&emsp;
+<img src="./screenshots/details_dark.png" width="320">&emsp;
+<img src="./screenshots/details_dark_alternate.png" width="320">
 
 
 ## Demo
-<!--<img src="/screenshorts/demo.png" width="360">-->
+<!--<img src="/screenshots/demo.png" width="360">-->
 
 ## Architecture
-<!--<img src="/screenshorts/architecture.png"  height = "350" width="460">-->
+<!--<img src="/screenshots/architecture.png"  height = "350" width="460">-->
 ### 1.UI layer
 The role of the UI layer (or presentation layer) is to display the application data on the screen. Whenever the data changes, either due to user interaction (such as pressing a button) or external input (such as a network response), the UI should update to reflect the changes.
 The UI layer is made up of two things:

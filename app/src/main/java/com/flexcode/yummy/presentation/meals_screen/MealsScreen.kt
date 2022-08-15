@@ -48,10 +48,9 @@ fun MealsScreen(
     Column(modifier = Modifier.fillMaxSize()) {
         Text(
             text = "What would you like to cook?",
-            fontSize = 28.sp,
             modifier = Modifier.padding(16.dp).fillMaxWidth(),
-            fontFamily = MaterialTheme.typography.h1.fontFamily,
-            fontStyle = MaterialTheme.typography.h1.fontStyle,
+            style = MaterialTheme.typography.h1,
+
         )
         Row(
             Modifier
@@ -71,6 +70,7 @@ fun MealsScreen(
                     Text(
                         text = "Search",
                         color = MaterialTheme.colors.onBackground.copy(alpha = .95f),
+                        style = MaterialTheme.typography.body1,
                     )
                 },
 
@@ -123,7 +123,7 @@ fun MealsScreen(
                 Text(
                     text = "Categories",
                     modifier = Modifier.padding(8.dp),
-                    style = MaterialTheme.typography.h1,
+                    style = MaterialTheme.typography.h2,
                     fontSize = 20.sp,
                 )
                 LazyRow(
@@ -142,7 +142,7 @@ fun MealsScreen(
                 Text(
                     text = "Recipes",
                     modifier = Modifier.padding(8.dp),
-                   style = MaterialTheme.typography.h1,
+                   style = MaterialTheme.typography.h2,
                     fontSize = 20.sp,
                 )
                 LazyVerticalGrid(

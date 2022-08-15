@@ -14,6 +14,9 @@ val Lato = FontFamily(
 val LatoBold = FontFamily(
     Font(R.font.lato_bold)
 )
+val ChunkFive = FontFamily(
+    Font(R.font.chunk_five_print)
+)
 
 // Set of Material typography styles to start with
 val Typography = Typography(
@@ -23,9 +26,14 @@ val Typography = Typography(
         fontSize = 16.sp
     ),
     h1 = TextStyle(
+        fontFamily = ChunkFive,
+        fontWeight = FontWeight.Normal,
+        fontSize = 32.sp
+    ),
+    h2 = TextStyle(
         fontFamily = LatoBold,
-        fontWeight = FontWeight.Bold,
-        fontSize = 24.sp
+        fontWeight = FontWeight.Normal,
+        fontSize = 20.sp,
     ),
     button = TextStyle(
         fontFamily = Lato,

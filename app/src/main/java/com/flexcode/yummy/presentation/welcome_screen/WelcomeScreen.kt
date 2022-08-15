@@ -38,7 +38,6 @@ fun WelComeScreen(
 
         Card(
             modifier = Modifier
-                .padding(8.dp)
                 .clip(RoundedCornerShape(40.dp))
                 .height(378.dp)
                 .fillMaxWidth(),
@@ -53,11 +52,11 @@ fun WelComeScreen(
 
         }
 
-        Spacer(modifier = Modifier.height(32.dp))
-
         Text(
-            modifier = Modifier.fillMaxWidth().padding(start = 16.dp),
-            text = " It's \n Cooking \n Time ",
+            modifier = Modifier.fillMaxWidth()
+                .padding(start = 16.dp)
+                .offset(y = -(16.dp)),
+            text = " It's \n Cooking \n Time!",
             fontSize = 46.sp,
             color = MaterialTheme.colors.onBackground,
             fontFamily = MaterialTheme.typography.h1.fontFamily,
@@ -82,7 +81,7 @@ fun WelComeScreen(
             colors = ButtonDefaults.buttonColors(
                 backgroundColor = MaterialTheme.colors.surface,
                 contentColor = MaterialTheme.colors.onSurface),
-            modifier = Modifier.padding(8.dp)
+            modifier = Modifier.padding(8.dp).fillMaxWidth(),
         ) {
             Text(
                 "Get Started",
