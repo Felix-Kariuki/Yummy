@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -38,12 +39,14 @@ fun MealItem(
                 navigator.navigate(MealDetailsScreenDestination(meals))
             }
         ,
+        backgroundColor = MaterialTheme.colors.background,
         shape = RoundedCornerShape(16.dp),
-        elevation = 10.dp
+        elevation = 10.dp,
     ) {
         Column(
             modifier = Modifier,
-            horizontalAlignment = Alignment.Start
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
         ) {
 
             val model = ImageRequest.Builder(LocalContext.current)
@@ -71,6 +74,9 @@ fun MealItem(
                     color = MaterialTheme.colors.onBackground,
                     overflow = TextOverflow.Ellipsis,
                     maxLines = 1,
+                    fontFamily = MaterialTheme.typography.body1.fontFamily,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.fillMaxWidth(),
                 )
             }
 

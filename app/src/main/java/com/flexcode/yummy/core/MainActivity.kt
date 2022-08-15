@@ -4,9 +4,11 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import com.flexcode.yummy.presentation.NavGraphs
 import com.flexcode.yummy.core.ui.theme.YummyTheme
 import com.ramcosta.composedestinations.DestinationsNavHost
@@ -22,7 +24,6 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-
                    DestinationsNavHost(navGraph = NavGraphs.root)
                 }
             }

@@ -6,6 +6,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Card
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -37,11 +38,10 @@ fun WelComeScreen(
 
         Card(
             modifier = Modifier
-                .padding(8.dp)
                 .clip(RoundedCornerShape(40.dp))
                 .height(378.dp)
                 .fillMaxWidth(),
-            backgroundColor = Color.White
+            backgroundColor = MaterialTheme.colors.background
         ) {
             Image(
                 painter = painterResource(R.drawable.chef),
@@ -52,16 +52,15 @@ fun WelComeScreen(
 
         }
 
-        Spacer(modifier = Modifier.height(32.dp))
-
         Text(
-            modifier = Modifier.fillMaxWidth(),
-            text = " It's \n Cooking \n Time ",
+            modifier = Modifier.fillMaxWidth()
+                .padding(start = 16.dp)
+                .offset(y = -(16.dp)),
+            text = " It's \n Cooking \n Time!",
             fontSize = 46.sp,
-            color = Color.Black,
-            fontWeight = FontWeight.Bold,
-            textAlign = TextAlign.Start,
-            fontFamily = FontFamily.Monospace,
+            color = MaterialTheme.colors.onBackground,
+            fontFamily = MaterialTheme.typography.h1.fontFamily,
+            fontStyle = MaterialTheme.typography.h1.fontStyle,
         )
 
 
@@ -80,13 +79,13 @@ fun WelComeScreen(
             ),
             shape = RoundedCornerShape(32.dp),
             colors = ButtonDefaults.buttonColors(
-                backgroundColor = ColorGreen,
-                contentColor = Color.White),
-            modifier = Modifier.padding(8.dp)
+                backgroundColor = MaterialTheme.colors.surface,
+                contentColor = MaterialTheme.colors.onSurface),
+            modifier = Modifier.padding(8.dp).fillMaxWidth(),
         ) {
             Text(
                 "Get Started",
-                fontSize = 20.sp
+                fontSize = 20.sp,
             )
         }
     }
