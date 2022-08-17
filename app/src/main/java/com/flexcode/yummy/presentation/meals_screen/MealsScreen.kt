@@ -7,6 +7,7 @@ import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
@@ -14,10 +15,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
@@ -37,21 +40,25 @@ fun MealsScreen(
     navigator: DestinationsNavigator,
     viewModel: MealsViewModel = hiltViewModel()
 ) {
+
     val state = viewModel.state
     val categoriesState = viewModel.categoryState
 
     val swipeRefreshState = rememberSwipeRefreshState(
         isRefreshing = viewModel.state.isRefreshing
     )
+    val focusManager = LocalFocusManager.current
 
 
     Column(modifier = Modifier.fillMaxSize()) {
         Text(
             text = "What would you like to cook?",
-            modifier = Modifier.padding(16.dp).fillMaxWidth(),
+            modifier = Modifier
+                .padding(16.dp)
+                .fillMaxWidth(),
             style = MaterialTheme.typography.h1,
 
-        )
+            )
         Row(
             Modifier
                 .fillMaxWidth()
@@ -79,14 +86,19 @@ fun MealsScreen(
                     .background(
                         MaterialTheme.colors.background, shape = RoundedCornerShape(16.dp)
                     )
-                    .shadow(8.dp)
-                ,
+                    .shadow(8.dp),
                 shape = RoundedCornerShape(size = 8.dp),
                 keyboardOptions = KeyboardOptions(
                     capitalization = KeyboardCapitalization.Words,
                     autoCorrect = true,
                     keyboardType = KeyboardType.Text,
+                    imeAction = ImeAction.Search
                 ),
+                keyboardActions = KeyboardActions(
+
+                    onSearch = {
+                        focusManager.clearFocus()
+                    }),
                 colors = TextFieldDefaults.textFieldColors(
                     textColor = Color.White,
                     disabledTextColor = MaterialTheme.colors.background,
@@ -142,7 +154,7 @@ fun MealsScreen(
                 Text(
                     text = "Recipes",
                     modifier = Modifier.padding(8.dp),
-                   style = MaterialTheme.typography.h2,
+                    style = MaterialTheme.typography.h2,
                     fontSize = 20.sp,
                 )
                 LazyVerticalGrid(
