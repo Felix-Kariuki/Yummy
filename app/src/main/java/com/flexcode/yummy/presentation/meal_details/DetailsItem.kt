@@ -10,6 +10,7 @@ import androidx.compose.material.IconButton
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.Alignment.Companion.Center
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -17,6 +18,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -35,13 +37,13 @@ fun DetailsItem(
     Column(
         modifier = modifier.fillMaxSize()
     ) {
-
-
         Row(
             Modifier
                 .fillMaxWidth()
                 .padding(8.dp),
+            verticalAlignment = Alignment.CenterVertically,
         ) {
+
             IconButton(
                 onClick = {
                     navigator.popBackStack()
@@ -54,23 +56,24 @@ fun DetailsItem(
                 )
 
             }
-
-            Row(
-                horizontalArrangement = Arrangement.Center,
-                modifier = modifier.fillMaxWidth()
-            ) {
-                Text(
-                    text = "${meals.strMeal}",
-                    fontSize = 18.sp,
-                    modifier = Modifier.padding(8.dp),
-                    fontWeight = FontWeight.SemiBold
-                )
-            }
-
+            Text(
+                text = "${meals.strMeal}",
+                fontSize = 18.sp,
+                modifier = Modifier
+                    .padding(8.dp)
+                    .weight(1f),
+                textAlign = TextAlign.Center,
+                fontWeight = FontWeight.SemiBold
+            )
+            Spacer(modifier = Modifier.width(48.dp))
         }
-        Column(modifier = modifier
-            .fillMaxWidth()
-            .height(300.dp), horizontalAlignment = CenterHorizontally) {
+
+
+        Column(
+            modifier = modifier
+                .fillMaxWidth()
+                .height(300.dp), horizontalAlignment = CenterHorizontally
+        ) {
             val model = ImageRequest.Builder(LocalContext.current)
                 .data("${meals.strMealThumb}")
                 .size(Size.ORIGINAL)
@@ -157,13 +160,15 @@ fun TestList(
     )
     LazyColumn {
         items(list) {
-            Row(Modifier.padding(4.dp),verticalAlignment = Alignment.CenterVertically) {
-                Canvas(modifier = Modifier
-                    .padding(start = 8.dp, end = 8.dp)
-                    .size(6.dp)){
+            Row(Modifier.padding(4.dp), verticalAlignment = Alignment.CenterVertically) {
+                Canvas(
+                    modifier = Modifier
+                        .padding(start = 8.dp, end = 8.dp)
+                        .size(6.dp)
+                ) {
                     drawCircle(Color.Black)
                 }
-                Text(text = it,fontSize = 12.sp)
+                Text(text = it, fontSize = 12.sp)
             }
         }
     }
