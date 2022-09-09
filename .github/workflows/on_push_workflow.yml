@@ -3,6 +3,8 @@ name: Build
 on:
   push:
     branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
 
@@ -25,6 +27,12 @@ jobs:
       - name: Build with gradle
         run: ./gradlew build --stacktrace
 
+      - name: Run Testts
+        run: ./gradlew test
+
+      - name: Build Project
+        run: ./gradlew assemble
+
   lint-check:
     name: 🔍 Lint
     runs-on: ubuntu-latest
@@ -41,3 +49,29 @@ jobs:
         with:
           name: lint_report.html
           path: app/build/reports/lint-results-debug.html
+
+
+#name: Android Build
+#
+#on: pull_request
+#
+#jobs:
+#  build:
+#
+#    runs-on: ubuntu-latest
+#
+#    steps:
+#      - uses: actions/checkout@v1
+#
+#      - name: Set Up JDK
+#        uses: actions/setup-java@v1
+#        with:
+#          java-version: 11
+#
+#      - name: Run Tests
+#        run: ./gradlew test
+#
+#      - name: Build Project
+#        run: ./gradlew assemble
+#
+#
