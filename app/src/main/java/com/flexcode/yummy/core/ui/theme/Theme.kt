@@ -10,7 +10,7 @@ private val DarkColorPalette = darkColors(
     primary = Purple200,
     primaryVariant = Purple700,
     secondary = Teal200,
-    background = Graffiti,
+    background = ColorGreen,
     surface = Black,
     onSurface = AntiFlashWhite,
 )
