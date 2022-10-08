@@ -20,8 +20,6 @@ fun MealDetailsScreen(
     meals: Meals,
     navigator: DestinationsNavigator,
 ) {
-
-
     Column(
         modifier = Modifier
             .fillMaxSize()
