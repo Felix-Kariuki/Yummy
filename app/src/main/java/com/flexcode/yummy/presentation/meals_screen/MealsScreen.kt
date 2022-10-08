@@ -117,6 +117,7 @@ fun MealsScreen(
                         painter = painterResource(id = R.drawable.ic_search),
                         contentDescription = null,
                         tint = MaterialTheme.colors.onBackground,
+
                     )
                 }
             )
