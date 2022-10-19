@@ -17,10 +17,10 @@ interface RepositoryModule {
     @Binds
     @Singleton
     fun bindMealsRepository(repository: MealsRepositoryImpl):
-            MealsRepository
+        MealsRepository
 
     @Binds
     @Singleton
     fun bindCategoriesRepository(repository: CategoriesRepositoryImpl):
-            CategoriesRepository
+        CategoriesRepository
 }

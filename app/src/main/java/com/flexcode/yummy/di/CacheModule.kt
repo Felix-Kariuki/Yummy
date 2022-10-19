@@ -21,7 +21,8 @@ object CacheModule {
         Room.databaseBuilder(
             context,
             MealsDatabase::class.java,
-            MealsDatabase.DATABASE_NAME)
+            MealsDatabase.DATABASE_NAME
+        )
             .fallbackToDestructiveMigration()
             .build()
 
@@ -29,6 +30,4 @@ object CacheModule {
     @Singleton
     fun provideMealsDao(database: MealsDatabase): MealsDao =
         database.mealsDao
-
-
 }

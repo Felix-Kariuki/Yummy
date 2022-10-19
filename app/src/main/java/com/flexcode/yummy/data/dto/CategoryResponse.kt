@@ -5,4 +5,4 @@ import java.io.Serializable
 
 data class CategoryResponse(
     @SerializedName("categories") var categories: ArrayList<CategoriesDto> = arrayListOf()
-): Serializable
+) : Serializable

@@ -22,7 +22,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                   DestinationsNavHost(navGraph = NavGraphs.root)
+                    DestinationsNavHost(navGraph = NavGraphs.root)
                 }
             }
         }

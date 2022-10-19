@@ -19,7 +19,6 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.rememberAsyncImagePainter
@@ -31,7 +30,8 @@ import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 
 @Composable
 fun DetailsItem(
-    meals: Meals, modifier: Modifier = Modifier,
+    meals: Meals,
+    modifier: Modifier = Modifier,
     navigator: DestinationsNavigator
 ) {
     Column(
@@ -54,7 +54,6 @@ fun DetailsItem(
                     contentDescription = "back",
                     modifier = Modifier.size(32.dp)
                 )
-
             }
             Text(
                 text = "${meals.strMeal}",
@@ -68,11 +67,11 @@ fun DetailsItem(
             Spacer(modifier = Modifier.width(48.dp))
         }
 
-
         Column(
             modifier = modifier
                 .fillMaxWidth()
-                .height(300.dp), horizontalAlignment = CenterHorizontally
+                .height(300.dp),
+            horizontalAlignment = CenterHorizontally
         ) {
             val model = ImageRequest.Builder(LocalContext.current)
                 .data("${meals.strMealThumb}")
@@ -99,7 +98,6 @@ fun DetailsItem(
                 modifier = modifier.align(CenterHorizontally),
                 contentScale = ContentScale.Fit
             )*/
-
         }
         Text(
             text = "Ingredients:",
@@ -129,9 +127,7 @@ fun DetailsItem(
             fontSize = 15.sp,
             modifier = Modifier.padding(start = 8.dp, end = 8.dp, bottom = 16.dp)
         )
-
     }
-
 }
 
 @Composable

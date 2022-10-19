@@ -58,4 +58,4 @@ data class Meals(
     var strImageSource: String? = null,
     var strCreativeCommonsConfirmed: String? = null,
     var dateModified: String? = null
-):Parcelable
+) : Parcelable

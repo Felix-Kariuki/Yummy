@@ -1,6 +1,5 @@
 package com.flexcode.yummy.presentation.meals_screen
 
-
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -23,7 +22,6 @@ import coil.request.ImageRequest
 import coil.size.Size
 import com.flexcode.yummy.domain.models.Meals
 import com.flexcode.yummy.presentation.destinations.MealDetailsScreenDestination
-import com.flexcode.yummy.R
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 
 @Composable
@@ -37,8 +35,7 @@ fun MealItem(
             .padding(4.dp)
             .clickable {
                 navigator.navigate(MealDetailsScreenDestination(meals))
-            }
-        ,
+            },
         backgroundColor = MaterialTheme.colors.background,
         shape = RoundedCornerShape(16.dp),
         elevation = 10.dp,
@@ -64,9 +61,11 @@ fun MealItem(
 
             Spacer(modifier = Modifier.height(8.dp))
 
-            Row(modifier = Modifier
-                .fillMaxWidth()
-                .padding(8.dp)) {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(8.dp)
+            ) {
                 Text(
                     text = "${meals.strMeal}",
                     fontWeight = FontWeight.Light,
@@ -79,10 +78,6 @@ fun MealItem(
                     modifier = Modifier.fillMaxWidth(),
                 )
             }
-
-
         }
     }
-
 }
-

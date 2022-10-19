@@ -10,11 +10,11 @@ import com.flexcode.yummy.data.local.entity.MealsEntity
 @Dao
 interface MealsDao {
 
-    @Insert(onConflict =OnConflictStrategy.REPLACE)
-    suspend fun addMeals(meals:List<MealsEntity>)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun addMeals(meals: List<MealsEntity>)
 
-    @Insert(onConflict =OnConflictStrategy.REPLACE)
-    suspend fun insertCategories(category:List<CategoriesEntity>)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertCategories(category: List<CategoriesEntity>)
 
     @Query("DELETE FROM mealsentity WHERE strSource IN(:meals)")
     suspend fun deleteMeals(meals: List<String>)
@@ -27,5 +27,4 @@ interface MealsDao {
 
     @Query("SELECT * FROM categoriesentity")
     suspend fun getCategories(): List<CategoriesEntity>
-
 }

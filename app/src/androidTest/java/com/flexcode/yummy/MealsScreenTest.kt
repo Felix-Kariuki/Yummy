@@ -22,7 +22,7 @@ class MealsScreenTest {
     private val navigator = mock(DestinationsNavigator::class.java)
 
     @Test
-    fun navigateToDetails(){
+    fun navigateToDetails() {
         val meals = Meals()
 
         composeTestRule.setContent {

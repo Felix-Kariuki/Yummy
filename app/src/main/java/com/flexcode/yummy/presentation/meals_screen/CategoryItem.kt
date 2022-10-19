@@ -12,13 +12,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.flexcode.yummy.R
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
+import com.flexcode.yummy.R
 import com.flexcode.yummy.domain.models.Categories
 
 @Composable
@@ -30,9 +29,7 @@ fun CategoryItem(
         modifier = modifier
             .padding(4.dp)
             .clickable {
-
-            }
-        ,
+            },
         shape = RoundedCornerShape(16.dp),
         elevation = 7.dp,
         backgroundColor = MaterialTheme.colors.background,
@@ -55,17 +52,17 @@ fun CategoryItem(
                     .fillMaxWidth()
                     .align(Alignment.CenterHorizontally)
                     .clickable {
-
                     }
                     .wrapContentSize(),
             )
 
             Spacer(modifier = Modifier.height(8.dp))
 
-            Row(modifier = Modifier
-                .fillMaxWidth()
-                .padding(8.dp),
-                ) {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(8.dp),
+            ) {
                 Text(
                     text = "${category.strCategory}",
                     fontWeight = FontWeight.Bold,
@@ -75,9 +72,6 @@ fun CategoryItem(
                     maxLines = 1,
                 )
             }
-
         }
     }
-
 }
-
