@@ -8,10 +8,10 @@ import com.flexcode.yummy.data.remote.mapper.toMealsEntity
 import com.flexcode.yummy.domain.models.Meals
 import com.flexcode.yummy.domain.repository.MealsRepository
 import com.flexcode.yummy.utils.Resource
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
 import java.io.IOException
 import javax.inject.Inject
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 
 class MealsRepositoryImpl @Inject constructor(
     private val dao: MealsDao,
@@ -26,7 +26,7 @@ class MealsRepositoryImpl @Inject constructor(
         return flow {
             emit(Resource.Loading())
 
-            //local
+            // local
             val localMeals = dao.getMeals(meal).map { it.toMeals() }
             emit(Resource.Success(data = localMeals))
 
@@ -37,7 +37,6 @@ class MealsRepositoryImpl @Inject constructor(
                 emit(Resource.Loading())
                 return@flow
             }
-
 
             try {
                 val remoteMeals = apiService.getMeals(meal)
@@ -61,7 +60,6 @@ class MealsRepositoryImpl @Inject constructor(
 
             val newMeals = dao.getMeals(meal).map { it.toMeals() }
             emit(Resource.Success(newMeals))
-
         }
     }
 }

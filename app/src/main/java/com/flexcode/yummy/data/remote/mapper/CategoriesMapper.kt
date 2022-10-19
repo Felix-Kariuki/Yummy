@@ -11,10 +11,9 @@ fun CategoriesEntity.toCategories(): Categories {
         strCategoryThumb = strCategoryThumb,
         strCategoryDescription = strCategoryDescription
     )
-
 }
 
-fun CategoriesDto.toCategoriesEntity() : CategoriesEntity{
+fun CategoriesDto.toCategoriesEntity(): CategoriesEntity {
     return CategoriesEntity(
         idCategory = idCategory,
         strCategory = strCategory,
@@ -23,7 +22,7 @@ fun CategoriesDto.toCategoriesEntity() : CategoriesEntity{
     )
 }
 
-fun CategoriesDto.toCategories() : Categories{
+fun CategoriesDto.toCategories(): Categories {
     return Categories(
         idCategory = idCategory,
         strCategory = strCategory,

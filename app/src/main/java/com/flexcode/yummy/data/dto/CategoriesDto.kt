@@ -2,11 +2,11 @@ package com.flexcode.yummy.data.dto
 
 import com.google.gson.annotations.SerializedName
 
-data class CategoriesDto (
+data class CategoriesDto(
 
-    @SerializedName("idCategory"             ) var idCategory             : Int? = null,
-    @SerializedName("strCategory"            ) var strCategory            : String? = null,
-    @SerializedName("strCategoryThumb"       ) var strCategoryThumb       : String? = null,
-    @SerializedName("strCategoryDescription" ) var strCategoryDescription : String? = null
+    @SerializedName("idCategory") var idCategory: Int? = null,
+    @SerializedName("strCategory") var strCategory: String? = null,
+    @SerializedName("strCategoryThumb") var strCategoryThumb: String? = null,
+    @SerializedName("strCategoryDescription") var strCategoryDescription: String? = null
 
 )

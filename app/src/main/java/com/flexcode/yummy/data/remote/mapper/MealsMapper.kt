@@ -3,8 +3,6 @@ package com.flexcode.yummy.data.remote.mapper
 import com.flexcode.yummy.data.dto.MealsDto
 import com.flexcode.yummy.data.local.entity.MealsEntity
 import com.flexcode.yummy.domain.models.Meals
-import org.jetbrains.annotations.NotNull
-
 
 fun MealsEntity.toMeals(): Meals {
     return Meals(

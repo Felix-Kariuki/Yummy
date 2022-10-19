@@ -12,12 +12,12 @@ import com.flexcode.yummy.utils.Constants.DELAY_TIME
 import com.flexcode.yummy.utils.Resource
 import com.flexcode.yummy.utils.UiEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 @HiltViewModel
 class MealsViewModel @Inject constructor(
@@ -45,7 +45,6 @@ class MealsViewModel @Inject constructor(
 
     private var searchJob: Job? = null
 
-
     init {
         getMeals()
         getCategories()
@@ -53,9 +52,9 @@ class MealsViewModel @Inject constructor(
 
     private fun getCategories() {
         viewModelScope.launch {
-            getCategoriesUseCase.invoke().collect{result->
-                when(result){
-                    is Resource.Success->
+            getCategoriesUseCase.invoke().collect { result ->
+                when (result) {
+                    is Resource.Success ->
                         _categoryState.value = result.data?.let {
                             categoryState.value.copy(
                                 categories = it
@@ -66,19 +65,16 @@ class MealsViewModel @Inject constructor(
                             isLoading = true
                         )
                     }
-                    is Resource.Error ->{
+                    is Resource.Error -> {
                         _categoryState.value = categoryState.value.copy(
                             isLoading = true,
                             categories = result.data!!
                         )
                     }
                 }
-
             }
         }
-
     }
-
 
     fun onEvent(event: MealsEvent) {
         when (event) {
@@ -93,7 +89,6 @@ class MealsViewModel @Inject constructor(
             }
         }
     }
-
 
     private fun getMeals(
         meal: String = state.searchMeal.lowercase(),
@@ -128,9 +123,6 @@ class MealsViewModel @Inject constructor(
                         }
                     }
                 }
-
         }
     }
-
-
 }

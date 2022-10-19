@@ -121,43 +121,44 @@ jobs:
           asset_path: Yummy/app-debug.apk
           asset_name: Yummy.apk
           asset_content_type: application/zip
-#
-#    firebase-deploy:
-#      name: 📨 Deploy to Firebase App Distribution
-#      needs: [ generate-apk ]
-#      runs-on: ubuntu-latest
-#      steps:
-#        - name: Checkout Code
-#          uses: actions/checkout@v1
-#
-#        - name: Download APK from build
-#          uses: actions/download-artifact@v1
-#          with:
-#            name: Android-CI-CD
-#
-#        - name: Upload Artifact to Firebase App Distribution
-#          uses: wzieba/Firebase-Distribution-Github-Action@v1.2.2
-#          with:
-#            appId: ${{secrets.FIREBASE_APP_ID}}
-#            token: ${{secrets.FIREBASE_TOKEN}}
-#            groups: testers
-#            file: Android-CI-CD/app-debug.apk
+          allowUpdates: true
 
-#    playstore-deploy:
-#      name: 🚀 Deploy to Play Store
-#      needs: [ generate-apk ]
-#      runs-on: ubuntu-latest
-#      steps:
-#        - name: Checkout Code
-#          uses: actions/checkout@v1
-#
-#    send-message:
-#      name: 📢 Send Message
-#      needs: [ create-release, firebase-deploy, playstore-deploy ]
-#      runs-on: ubuntu-latest
-#      steps:
-#        - name: Checkout Code
-#          uses: actions/checkout@v1
+  firebase-deploy:
+    name: 📨 Deploy to Firebase App Distribution
+    needs: [ generate-apk ]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v1
+
+      - name: Download APK from build
+        uses: actions/download-artifact@v1
+        with:
+          name: Yummy
+
+      - name: Upload Artifact to Firebase App Distribution
+        uses: wzieba/Firebase-Distribution-Github-Action@v1
+        with:
+          appId: ${{secrets.FIREBASE_APP_ID}}
+          token: ${{secrets.FIREBASE_TOKEN}}
+          groups: Testers
+          file: Yummy/app-debug.apk
+
+  playstore-deploy:
+    name: 🚀 Deploy to Play Store
+    needs: [ generate-apk ]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v1
+
+  send-message:
+    name: 📢 Send Message
+    needs: [ create-release, firebase-deploy, playstore-deploy ]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v1
 
 #name: Android Build
 #

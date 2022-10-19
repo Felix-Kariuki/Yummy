@@ -4,8 +4,8 @@ import com.flexcode.yummy.domain.models.Categories
 import com.flexcode.yummy.domain.repository.CategoriesRepository
 import com.flexcode.yummy.utils.Resource
 import dagger.hilt.android.scopes.ViewModelScoped
-import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
+import kotlinx.coroutines.flow.Flow
 
 @ViewModelScoped
 class GetCategoriesUseCase @Inject constructor(

@@ -5,6 +5,9 @@ import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.platform.app.InstrumentationRegistry
 import com.flexcode.yummy.data.dto.MealsDto
 import com.flexcode.yummy.data.remote.ApiService
+import java.io.InputStream
+import java.net.HttpURLConnection
+import java.util.concurrent.TimeUnit
 import kotlinx.coroutines.runBlocking
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -16,9 +19,6 @@ import org.junit.Before
 import org.junit.Test
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import java.io.InputStream
-import java.net.HttpURLConnection
-import java.util.concurrent.TimeUnit
 
 class ApiServiceTest {
 
@@ -66,13 +66,12 @@ class ApiServiceTest {
     fun test_response() = runBlocking {
         val data = apiService.getMeals("Corba")
         ViewMatchers.assertThat(
-            MealsDto(strMeal = "Corba"), CoreMatchers.equalTo(
+            MealsDto(strMeal = "Corba"),
+            CoreMatchers.equalTo(
                 MealsDto(
                     strMeal = "Corba",
                 )
             )
         )
     }
-
-
 }

@@ -18,8 +18,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.text.input.KeyboardType
@@ -27,7 +25,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.flexcode.yummy.R
-import com.flexcode.yummy.core.ui.theme.Lato
 import com.flexcode.yummy.domain.models.Categories
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
@@ -49,7 +46,6 @@ fun MealsScreen(
     )
     val focusManager = LocalFocusManager.current
 
-
     Column(modifier = Modifier.fillMaxSize()) {
         Text(
             text = "What would you like to cook?",
@@ -58,7 +54,7 @@ fun MealsScreen(
                 .fillMaxWidth(),
             style = MaterialTheme.typography.h1,
 
-            )
+        )
         Row(
             Modifier
                 .fillMaxWidth()
@@ -98,7 +94,8 @@ fun MealsScreen(
 
                     onSearch = {
                         focusManager.clearFocus()
-                    }),
+                    }
+                ),
                 colors = TextFieldDefaults.textFieldColors(
                     textColor = Color.White,
                     disabledTextColor = MaterialTheme.colors.background,
@@ -127,7 +124,8 @@ fun MealsScreen(
             state = swipeRefreshState,
             onRefresh = {
                 viewModel.onEvent(MealsEvent.Refresh)
-            }) {
+            }
+        ) {
 
             Column(
                 modifier = Modifier.fillMaxSize()
@@ -148,9 +146,9 @@ fun MealsScreen(
                             val category = categoriesState.value.categories[i]
 
                             CategoryItem(category = category)
-
                         }
-                    })
+                    }
+                )
                 Spacer(modifier = Modifier.height(16.dp))
                 Text(
                     text = "Recipes",
@@ -168,16 +166,12 @@ fun MealsScreen(
                             meals = meals,
                             navigator = navigator,
                             modifier = Modifier.clickable {
-                                //navigator.navigate(MealDetailsScreenDestination(meals))
+                                // navigator.navigate(MealDetailsScreenDestination(meals))
                             }
                         )
                     }
                 }
             }
-
-
         }
     }
 }
-
-

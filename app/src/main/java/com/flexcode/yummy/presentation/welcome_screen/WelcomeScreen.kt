@@ -11,16 +11,11 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.flexcode.yummy.presentation.destinations.MealsScreenDestination
-import com.flexcode.yummy.core.ui.theme.ColorGreen
 import com.flexcode.yummy.R
+import com.flexcode.yummy.presentation.destinations.MealsScreenDestination
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 
@@ -34,7 +29,7 @@ fun WelComeScreen(
         modifier = Modifier
             .fillMaxSize()
 
-    ){
+    ) {
 
         Card(
             modifier = Modifier
@@ -49,7 +44,6 @@ fun WelComeScreen(
                 modifier = Modifier
                     .height(520.dp)
             )
-
         }
 
         Text(
@@ -62,7 +56,6 @@ fun WelComeScreen(
             fontFamily = MaterialTheme.typography.h1.fontFamily,
             fontStyle = MaterialTheme.typography.h1.fontStyle,
         )
-
 
         Spacer(modifier = Modifier.height(32.dp))
 
@@ -80,7 +73,8 @@ fun WelComeScreen(
             shape = RoundedCornerShape(32.dp),
             colors = ButtonDefaults.buttonColors(
                 backgroundColor = MaterialTheme.colors.surface,
-                contentColor = MaterialTheme.colors.onSurface),
+                contentColor = MaterialTheme.colors.onSurface
+            ),
             modifier = Modifier.padding(8.dp).fillMaxWidth(),
         ) {
             Text(
@@ -89,5 +83,4 @@ fun WelComeScreen(
             )
         }
     }
-
 }
