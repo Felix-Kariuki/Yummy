@@ -121,6 +121,7 @@ jobs:
           asset_path: Yummy/app-debug.apk
           asset_name: Yummy.apk
           asset_content_type: application/zip
+          allowUpdates: true
 
   firebase-deploy:
     name: 📨 Deploy to Firebase App Distribution
