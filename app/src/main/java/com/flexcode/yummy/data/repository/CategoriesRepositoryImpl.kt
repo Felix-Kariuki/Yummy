@@ -18,7 +18,7 @@ class CategoriesRepositoryImpl @Inject constructor(
     private val dao: MealsDao,
 ) : CategoriesRepository {
 
-    override suspend fun getCategories(): Flow<Resource<List<Categories>>> = flow {
+    override fun getCategories(): Flow<Resource<List<Categories>>> = flow {
         emit(Resource.Loading())
 
         val localCategories = dao.getCategories()

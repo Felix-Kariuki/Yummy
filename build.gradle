@@ -1,13 +1,13 @@
 buildscript {
     ext {
         // SDK Constants
-        COMPILE_SDK = 32
+        COMPILE_SDK = 33
         TARGET_SDK = COMPILE_SDK
         MIN_SDK = 21
         KOTLIN = "1.6.10"
 
         // Jetpack & 3rd party libraries
-        activity_compose = "1.6.0-alpha01"
+        activity_compose = "1.6.0"
         paging_compose = "1.0.0-alpha14"
         swipe_refresh = "0.24.2-alpha"
         lifecycle_ktx = "2.3.1"

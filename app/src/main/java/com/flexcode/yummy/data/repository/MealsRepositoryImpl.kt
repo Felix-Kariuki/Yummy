@@ -18,7 +18,7 @@ class MealsRepositoryImpl @Inject constructor(
     private val apiService: ApiService,
 ) : MealsRepository {
 
-    override suspend fun getMeals(
+    override  fun getMeals(
         meal: String,
         fetchFromRemote: Boolean,
     ): Flow<Resource<List<Meals>>> {

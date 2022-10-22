@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.Flow
 class GetMealsUseCase @Inject constructor(
     private val repository: MealsRepository,
 ) {
-    suspend operator fun invoke(
+    operator fun invoke(
         meal: String,
         fetchFromRemote: Boolean,
     ): Flow<Resource<List<Meals>>> {
