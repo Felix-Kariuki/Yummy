@@ -12,7 +12,7 @@ class GetCategoriesUseCase @Inject constructor(
     private val repository: CategoriesRepository,
 ) {
 
-    suspend operator fun invoke(): Flow<Resource<List<Categories>>> {
+operator fun invoke(): Flow<Resource<List<Categories>>> {
         return repository.getCategories()
     }
 }
