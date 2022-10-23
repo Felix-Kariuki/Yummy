@@ -1,6 +1,6 @@
 package com.flexcode.yummy.data.repository
 
-import com.flexcode.yummy.data.local.MealsDao
+import com.flexcode.yummy.data.local.dao.CategoriesDao
 import com.flexcode.yummy.data.remote.ApiService
 import com.flexcode.yummy.data.remote.mapper.toCategories
 import com.flexcode.yummy.data.remote.mapper.toCategoriesEntity
@@ -15,7 +15,7 @@ import retrofit2.HttpException
 
 class CategoriesRepositoryImpl @Inject constructor(
     private val apiService: ApiService,
-    private val dao: MealsDao,
+    private val dao: CategoriesDao,
 ) : CategoriesRepository {
 
     override fun getCategories(): Flow<Resource<List<Categories>>> = flow {
