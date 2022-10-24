@@ -44,7 +44,7 @@ class MealsViewModel @Inject constructor(
 
     private fun getCategories() {
         viewModelScope.launch {
-            getCategoriesUseCase.invoke().collect { result ->
+            getCategoriesUseCase().collect { result ->
                 when (result) {
                     is Resource.Success ->
                         _categoryState.value = result.data?.let {
@@ -88,7 +88,7 @@ class MealsViewModel @Inject constructor(
     ) {
 
         viewModelScope.launch {
-            getMealsUseCase.invoke(meal, fetchFromRemote)
+            getMealsUseCase(meal, fetchFromRemote)
                 .collect { result ->
                     when (result) {
                         is Resource.Success -> {
