@@ -151,6 +151,7 @@ dependencies {
     implementation "com.facebook.shimmer:shimmer:$shimmer"
 
     // Testing
+    androidTestImplementation "com.google.truth:truth:1.0.1"
     testImplementation "junit:junit:$junit"
     androidTestImplementation "androidx.test.ext:junit:$androidx_junit"
     androidTestImplementation "androidx.test.espresso:espresso-core:$androidx_espresso"

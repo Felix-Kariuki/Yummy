@@ -2,8 +2,9 @@ package com.flexcode.yummy.di
 
 import android.content.Context
 import androidx.room.Room
-import com.flexcode.yummy.data.local.MealsDao
-import com.flexcode.yummy.data.local.MealsDatabase
+import com.flexcode.yummy.data.local.dao.CategoriesDao
+import com.flexcode.yummy.data.local.dao.MealsDao
+import com.flexcode.yummy.data.local.db.MealsDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -30,4 +31,9 @@ object CacheModule {
     @Singleton
     fun provideMealsDao(database: MealsDatabase): MealsDao =
         database.mealsDao
+
+    @Provides
+    @Singleton
+    fun provideCategoriesDao(database: MealsDatabase): CategoriesDao =
+        database.categoriesDao
 }

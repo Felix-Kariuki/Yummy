@@ -1,7 +1,7 @@
 package com.flexcode.yummy.data.repository
 
 import coil.network.HttpException
-import com.flexcode.yummy.data.local.MealsDao
+import com.flexcode.yummy.data.local.dao.MealsDao
 import com.flexcode.yummy.data.remote.ApiService
 import com.flexcode.yummy.data.remote.mapper.toMeals
 import com.flexcode.yummy.data.remote.mapper.toMealsEntity
@@ -18,7 +18,7 @@ class MealsRepositoryImpl @Inject constructor(
     private val apiService: ApiService,
 ) : MealsRepository {
 
-    override  fun getMeals(
+    override fun getMeals(
         meal: String,
         fetchFromRemote: Boolean,
     ): Flow<Resource<List<Meals>>> {
