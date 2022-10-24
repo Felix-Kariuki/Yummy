@@ -4,7 +4,7 @@ import androidx.room.Room
 import androidx.test.platform.app.InstrumentationRegistry
 import com.flexcode.yummy.data.local.db.MealsDatabase
 import com.flexcode.yummy.data.local.entity.CategoriesEntity
-import com.google.common.truth.Truth
+import com.google.common.truth.Truth.assertThat
 import kotlinx.coroutines.runBlocking
 import org.junit.After
 import org.junit.Assert
@@ -75,7 +75,7 @@ class CategoriesDaoTest {
             categoriesDao.deleteCategories()
 
             val result = categoriesDao.getCategories()
-            Truth.assertThat(result.isEmpty())
+            assertThat(result.isEmpty())
         }
     }
 }
