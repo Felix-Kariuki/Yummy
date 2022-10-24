@@ -25,8 +25,6 @@ class MealsViewModel @Inject constructor(
     private val getCategoriesUseCase: GetCategoriesUseCase
 ) : ViewModel() {
 
-    /*private val _state = mutableStateOf(MealsState())
-    val state: State<MealsState> = _state*/
 
     private val _categoryState = mutableStateOf(CategoriesState())
     val categoryState: State<CategoriesState> = _categoryState
@@ -36,12 +34,6 @@ class MealsViewModel @Inject constructor(
     private val _eventFlow = MutableSharedFlow<UiEvent>()
     val eventFlow = _eventFlow.asSharedFlow()
 
-    /*private val _searchMeal = MutableLiveData("")
-    val searchMeal: LiveData<String?> = _searchMeal
-
-    fun onSearch(meal: String): Flow<Resource<List<Meals>>> {
-        _searchMeal.value = meal
-    }*/
 
     private var searchJob: Job? = null
 
@@ -52,7 +44,7 @@ class MealsViewModel @Inject constructor(
 
     private fun getCategories() {
         viewModelScope.launch {
-            getCategoriesUseCase.invoke().collect { result ->
+            getCategoriesUseCase().collect { result ->
                 when (result) {
                     is Resource.Success ->
                         _categoryState.value = result.data?.let {
@@ -96,7 +88,7 @@ class MealsViewModel @Inject constructor(
     ) {
 
         viewModelScope.launch {
-            getMealsUseCase.invoke(meal, fetchFromRemote)
+            getMealsUseCase(meal, fetchFromRemote)
                 .collect { result ->
                     when (result) {
                         is Resource.Success -> {
