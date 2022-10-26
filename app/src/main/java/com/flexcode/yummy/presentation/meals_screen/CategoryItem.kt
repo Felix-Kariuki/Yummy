@@ -28,20 +28,19 @@ fun CategoryItem(
 ) {
     Card(
         modifier = modifier
-            .padding(4.dp)
-            .clickable {
+            .padding(4.dp),
+        shape = RoundedCornerShape(16.dp),
+        elevation = 7.dp,
+        backgroundColor = MaterialTheme.colors.background,
+    ) {
+        Column(
+            modifier = Modifier.clickable {
 
                 category.strCategory?.let {
 
                     onClickCategoryItem(it)
                 }
             },
-        shape = RoundedCornerShape(16.dp),
-        elevation = 7.dp,
-        backgroundColor = MaterialTheme.colors.background,
-    ) {
-        Column(
-            modifier = Modifier,
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
 
