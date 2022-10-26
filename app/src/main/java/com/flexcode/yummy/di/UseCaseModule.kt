@@ -24,9 +24,9 @@ object UseCaseModule {
     ): UseCaseContainer {
 
         return UseCaseContainer(
-                getCategoriesUseCase = GetCategoriesUseCase(repository = categoryRepository),
-                getMealsUseCase = GetMealsUseCase(repository = mealsRepository),
-                getMealsByCategoryUseCase = GetMealsByCategoryUseCase(repository = mealsRepository)
+            getCategoriesUseCase = GetCategoriesUseCase(repository = categoryRepository),
+            getMealsUseCase = GetMealsUseCase(repository = mealsRepository),
+            getMealsByCategoryUseCase = GetMealsByCategoryUseCase(repository = mealsRepository)
         )
     }
 }

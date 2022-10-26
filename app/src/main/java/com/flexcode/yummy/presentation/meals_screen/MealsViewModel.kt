@@ -3,9 +3,7 @@ package com.flexcode.yummy.presentation.meals_screen
 import androidx.compose.runtime.*
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.flexcode.yummy.domain.use_case.GetCategoriesUseCase
-import com.flexcode.yummy.domain.use_case.GetMealsByCategoryUseCase
-import com.flexcode.yummy.domain.use_case.GetMealsUseCase
+import com.flexcode.yummy.domain.use_case.UseCaseContainer
 import com.flexcode.yummy.utils.Constants.DELAY_TIME
 import com.flexcode.yummy.utils.Resource
 import com.flexcode.yummy.utils.UiEvent
@@ -21,9 +19,7 @@ import kotlinx.coroutines.launch
 
 @HiltViewModel
 class MealsViewModel @Inject constructor(
-    private val getMealsUseCase: GetMealsUseCase,
-    private val getCategoriesUseCase: GetCategoriesUseCase,
-    private val getMealsByCategoryUseCase: GetMealsByCategoryUseCase
+    private val container: UseCaseContainer
 ) : ViewModel() {
 
     private val _categoryState = mutableStateOf(CategoriesState())
@@ -43,7 +39,7 @@ class MealsViewModel @Inject constructor(
 
     private fun getCategories() {
         viewModelScope.launch {
-            getCategoriesUseCase().collect { result ->
+            container.getCategoriesUseCase().collect { result ->
                 when (result) {
                     is Resource.Success ->
                         _categoryState.value = result.data?.let {
@@ -80,7 +76,7 @@ class MealsViewModel @Inject constructor(
             }
             is MealsEvent.OnClickCategoryItem -> {
 
-                getMealsByCategoryUseCase(event.category).onEach {
+                container.getMealsByCategoryUseCase(event.category).onEach {
 
                     state = state.copy(meals = it)
                 }.launchIn(viewModelScope)
@@ -100,7 +96,7 @@ class MealsViewModel @Inject constructor(
     ) {
 
         viewModelScope.launch {
-            getMealsUseCase(meal, fetchFromRemote)
+            container.getMealsUseCase(meal, fetchFromRemote)
                 .collect { result ->
                     when (result) {
                         is Resource.Success -> {
