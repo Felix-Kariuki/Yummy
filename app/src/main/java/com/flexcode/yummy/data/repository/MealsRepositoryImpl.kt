@@ -8,11 +8,11 @@ import com.flexcode.yummy.data.remote.mapper.toMealsEntity
 import com.flexcode.yummy.domain.models.Meals
 import com.flexcode.yummy.domain.repository.MealsRepository
 import com.flexcode.yummy.utils.Resource
+import java.io.IOException
+import javax.inject.Inject
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
-import java.io.IOException
-import javax.inject.Inject
 
 class MealsRepositoryImpl @Inject constructor(
     private val dao: MealsDao,
@@ -29,7 +29,7 @@ class MealsRepositoryImpl @Inject constructor(
 
             // local
             val localMeals = dao.getMeals(meal)
-                    .map { it.toMeals() }
+                .map { it.toMeals() }
             emit(Resource.Success(data = localMeals))
 
             val noLocalCache = localMeals.isEmpty()
@@ -45,34 +45,33 @@ class MealsRepositoryImpl @Inject constructor(
                 remoteMeals.meals?.let { mealsDto ->
                     emit(Resource.Success(mealsDto.map { it.toMeals() }))
                     mealsDto.map { it.strSource }
-                            .let { dao.deleteMeals(it as List<String>) }
+                        .let { dao.deleteMeals(it as List<String>) }
                     dao.addMeals(mealsDto.map { it.toMealsEntity() })
                 }
             } catch (e: HttpException) {
                 Resource.Error(
-                        message = "${e.message}",
-                        data = localMeals
+                    message = "${e.message}",
+                    data = localMeals
                 )
             } catch (e: IOException) {
                 Resource.Error(
-                        message = "${e.message}",
-                        data = localMeals
+                    message = "${e.message}",
+                    data = localMeals
                 )
             }
 
             val newMeals = dao.getMeals(meal)
-                    .map { it.toMeals() }
+                .map { it.toMeals() }
             emit(Resource.Success(newMeals))
         }
     }
 
     override fun getMealsByCategory(category: String): Flow<List<Meals>> {
         return dao.getMealsByCategory(category = category)
-                .map {
+            .map {
 
-                    meals ->
-                    meals.map { it.toMeals() }
-
-                }
+                meals ->
+                meals.map { it.toMeals() }
+            }
     }
 }

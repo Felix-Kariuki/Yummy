@@ -7,7 +7,6 @@ import androidx.room.Query
 import com.flexcode.yummy.data.local.entity.MealsEntity
 import kotlinx.coroutines.flow.Flow
 
-
 @Dao
 interface MealsDao {
 

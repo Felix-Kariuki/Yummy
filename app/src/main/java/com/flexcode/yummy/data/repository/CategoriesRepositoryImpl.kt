@@ -49,6 +49,4 @@ class CategoriesRepositoryImpl @Inject constructor(
             .map { it.toCategories() }
         emit(Resource.Success(newCategories))
     }
-
-
 }
