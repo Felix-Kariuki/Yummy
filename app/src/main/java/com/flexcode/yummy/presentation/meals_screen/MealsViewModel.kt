@@ -85,6 +85,12 @@ class MealsViewModel @Inject constructor(
                     state = state.copy(meals = it)
                 }.launchIn(viewModelScope)
             }
+
+            is MealsEvent.OnClickClearText -> {
+
+                state = state.copy(searchMeal = "")
+                getMeals()
+            }
         }
     }
 

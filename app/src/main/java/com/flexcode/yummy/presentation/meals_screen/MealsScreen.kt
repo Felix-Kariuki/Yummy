@@ -125,7 +125,9 @@ fun MealsScreen(
                     Icon(
                         imageVector = Icons.Default.Close,
                         contentDescription = "Clear Text",
-                        modifier = Modifier.clickable { },
+                        modifier = Modifier.clickable {
+                            viewModel.onEvent(MealsEvent.OnClickClearText)
+                        },
                         tint = MaterialTheme.colors.onBackground
                     )
                 }
