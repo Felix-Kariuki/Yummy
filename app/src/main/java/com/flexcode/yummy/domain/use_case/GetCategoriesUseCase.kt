@@ -7,8 +7,8 @@ import dagger.hilt.android.scopes.ViewModelScoped
 import javax.inject.Inject
 import kotlinx.coroutines.flow.Flow
 
-@ViewModelScoped
-class GetCategoriesUseCase @Inject constructor(
+
+class GetCategoriesUseCase (
     private val repository: CategoriesRepository,
 ) {
 

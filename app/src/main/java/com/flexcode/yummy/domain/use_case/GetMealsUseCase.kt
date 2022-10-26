@@ -7,8 +7,8 @@ import dagger.hilt.android.scopes.ViewModelScoped
 import javax.inject.Inject
 import kotlinx.coroutines.flow.Flow
 
-@ViewModelScoped
-class GetMealsUseCase @Inject constructor(
+
+class GetMealsUseCase  constructor(
     private val repository: MealsRepository,
 ) {
     operator fun invoke(
