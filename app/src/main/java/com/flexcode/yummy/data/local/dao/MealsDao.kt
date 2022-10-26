@@ -5,6 +5,8 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.flexcode.yummy.data.local.entity.MealsEntity
+import kotlinx.coroutines.flow.Flow
+
 
 @Dao
 interface MealsDao {
@@ -17,4 +19,7 @@ interface MealsDao {
 
     @Query("SELECT * FROM mealsentity WHERE strMeal || strCategory LIKE '%' || :meal || '%'")
     suspend fun getMeals(meal: String): List<MealsEntity>
+
+    @Query("SELECT * FROM mealsentity WHERE strCategory LIKE :category")
+    fun getMealsByCategory(category: String): Flow<List<MealsEntity>>
 }
