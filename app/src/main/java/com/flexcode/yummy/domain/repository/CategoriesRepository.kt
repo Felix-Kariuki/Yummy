@@ -1,10 +1,11 @@
 package com.flexcode.yummy.domain.repository
 
 import com.flexcode.yummy.domain.models.Categories
+import com.flexcode.yummy.domain.models.Meals
 import com.flexcode.yummy.utils.Resource
 import kotlinx.coroutines.flow.Flow
 
 interface CategoriesRepository {
     fun getCategories(): Flow<Resource<List<Categories>>>
-    fun getCategorySearchWord(categoryId: Int): String
+
 }

@@ -50,24 +50,7 @@ class CategoriesRepositoryImpl @Inject constructor(
         emit(Resource.Success(newCategories))
     }
 
-    override fun getCategorySearchWord(categoryId: Int): String {
-        val mealMap = mapOf(
-            1 to "Beef",
-            2 to "Chicken",
-            3 to "Cake",
-            4 to "Lamb",
-            5 to "Cake",
-            6 to "Pasta",
-            7 to "Pork",
-            8 to "Sea",
-            9 to "Salad",
-            10 to "Starter",
-            11 to "Vegan",
-            12 to "Lentils",
-            13 to "Omelette",
-            14 to "Goat"
-        )
+    override fun getMealsByCategory(category:String): String {
 
-        return mealMap[categoryId] ?: ""
     }
 }
