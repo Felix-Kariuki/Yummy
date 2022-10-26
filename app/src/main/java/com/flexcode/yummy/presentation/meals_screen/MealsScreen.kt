@@ -10,6 +10,8 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Close
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -80,7 +82,8 @@ fun MealsScreen(
                 modifier = Modifier
                     .fillMaxWidth()
                     .background(
-                        MaterialTheme.colors.background, shape = RoundedCornerShape(16.dp)
+                        MaterialTheme.colors.background,
+                        shape = RoundedCornerShape(16.dp)
                     )
                     .shadow(8.dp),
                 shape = RoundedCornerShape(size = 8.dp),
@@ -109,12 +112,21 @@ fun MealsScreen(
                 singleLine = true,
                 leadingIcon = {
                     Icon(
+
                         modifier = Modifier
                             .size(24.dp),
                         painter = painterResource(id = R.drawable.ic_search),
                         contentDescription = null,
                         tint = MaterialTheme.colors.onBackground,
 
+                    )
+                },
+                trailingIcon = {
+                    Icon(
+                        imageVector = Icons.Default.Close,
+                        contentDescription = "Clear Text",
+                        modifier = Modifier.clickable { },
+                        tint = MaterialTheme.colors.onBackground
                     )
                 }
             )
