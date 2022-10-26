@@ -6,4 +6,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface CategoriesRepository {
     fun getCategories(): Flow<Resource<List<Categories>>>
+    fun getCategorySearchWord(categoryId: Int): String
 }

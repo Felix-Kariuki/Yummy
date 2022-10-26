@@ -25,7 +25,6 @@ class MealsViewModel @Inject constructor(
     private val getCategoriesUseCase: GetCategoriesUseCase
 ) : ViewModel() {
 
-
     private val _categoryState = mutableStateOf(CategoriesState())
     val categoryState: State<CategoriesState> = _categoryState
 
@@ -33,7 +32,6 @@ class MealsViewModel @Inject constructor(
 
     private val _eventFlow = MutableSharedFlow<UiEvent>()
     val eventFlow = _eventFlow.asSharedFlow()
-
 
     private var searchJob: Job? = null
 
