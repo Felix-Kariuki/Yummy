@@ -23,12 +23,18 @@ import com.flexcode.yummy.domain.models.Categories
 @Composable
 fun CategoryItem(
     category: Categories,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onClickCategoryItem:(category:String)-> Unit
 ) {
     Card(
         modifier = modifier
             .padding(4.dp)
             .clickable {
+
+                      category.strCategory?.let {
+
+                          onClickCategoryItem(it)
+                      }
             },
         shape = RoundedCornerShape(16.dp),
         elevation = 7.dp,
