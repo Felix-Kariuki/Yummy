@@ -7,11 +7,11 @@ import com.flexcode.yummy.data.remote.mapper.toCategoriesEntity
 import com.flexcode.yummy.domain.models.Categories
 import com.flexcode.yummy.domain.repository.CategoriesRepository
 import com.flexcode.yummy.utils.Resource
-import java.io.IOException
-import javax.inject.Inject
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import retrofit2.HttpException
+import java.io.IOException
+import javax.inject.Inject
 
 class CategoriesRepositoryImpl @Inject constructor(
     private val apiService: ApiService,
@@ -31,21 +31,43 @@ class CategoriesRepositoryImpl @Inject constructor(
             dao.insertCategories(response.categories.map { it.toCategoriesEntity() })
         } catch (e: HttpException) {
             emit(
-                Resource.Error(
-                    message = "Something went wrong ${e.message}",
-                    data = localCategories.map { it.toCategories() }
-                )
+                    Resource.Error(
+                            message = "Something went wrong ${e.message}",
+                            data = localCategories.map { it.toCategories() }
+                    )
             )
         } catch (e: IOException) {
             emit(
-                Resource.Error(
-                    message = "ERROR!!, check your internet connection!",
-                    data = localCategories.map { it.toCategories() }
-                )
+                    Resource.Error(
+                            message = "ERROR!!, check your internet connection!",
+                            data = localCategories.map { it.toCategories() }
+                    )
             )
         }
 
-        val newCategories = dao.getCategories().map { it.toCategories() }
+        val newCategories = dao.getCategories()
+                .map { it.toCategories() }
         emit(Resource.Success(newCategories))
+    }
+
+    override fun getCategorySearchWord(categoryId: Int): String {
+        val mealMap = mapOf(
+                1 to "Beef",
+                2 to "Chicken",
+                3 to "Cake",
+                4 to "Lamb",
+                5 to "Cake",
+                6 to "Pasta",
+                7 to "Pork",
+                8 to "Sea",
+                9 to "Salad",
+                10 to "Starter",
+                11 to "Vegan",
+                12 to "Lentils",
+                13 to "Omelette",
+                14 to "Goat"
+        )
+
+        return mealMap[categoryId] ?: ""
     }
 }
