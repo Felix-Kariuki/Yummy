@@ -50,7 +50,5 @@ class CategoriesRepositoryImpl @Inject constructor(
         emit(Resource.Success(newCategories))
     }
 
-    override fun getMealsByCategory(category:String): String {
 
-    }
 }
