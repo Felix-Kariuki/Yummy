@@ -145,7 +145,9 @@ fun MealsScreen(
                         items(categories.size) { i ->
                             val category = categoriesState.value.categories[i]
 
-                            CategoryItem(category = category)
+                            CategoryItem(category = category){
+                                viewModel.onEvent(MealsEvent.OnClickCategoryItem(it))
+                            }
                         }
                     }
                 )
