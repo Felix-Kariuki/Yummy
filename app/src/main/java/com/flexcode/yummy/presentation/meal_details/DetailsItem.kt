@@ -5,14 +5,10 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.Icon
-import androidx.compose.material.IconButton
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.BottomCenter
-import androidx.compose.ui.Alignment.Companion.Center
 import androidx.compose.ui.Alignment.Companion.TopStart
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -39,35 +35,35 @@ fun DetailsItem(
     Column(
         modifier = modifier.fillMaxSize()
     ) {
-    /*    Row(
-            Modifier
-                .fillMaxWidth()
-                .padding(8.dp),
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-
-            IconButton(
-                onClick = {
-                    navigator.popBackStack()
-                },
+        /*    Row(
+                Modifier
+                    .fillMaxWidth()
+                    .padding(8.dp),
+                verticalAlignment = Alignment.CenterVertically,
             ) {
-                Icon(
-                    painter = painterResource(id = R.drawable.ic_left),
-                    contentDescription = "back",
-                    modifier = Modifier.size(32.dp)
+
+                IconButton(
+                    onClick = {
+                        navigator.popBackStack()
+                    },
+                ) {
+                    Icon(
+                        painter = painterResource(id = R.drawable.ic_left),
+                        contentDescription = "back",
+                        modifier = Modifier.size(32.dp)
+                    )
+                }
+                Text(
+                    text = "${meals.strMeal}",
+                    fontSize = 18.sp,
+                    modifier = Modifier
+                        .padding(8.dp)
+                        .weight(1f),
+                    textAlign = TextAlign.Center,
+                    fontWeight = FontWeight.SemiBold
                 )
-            }
-            Text(
-                text = "${meals.strMeal}",
-                fontSize = 18.sp,
-                modifier = Modifier
-                    .padding(8.dp)
-                    .weight(1f),
-                textAlign = TextAlign.Center,
-                fontWeight = FontWeight.SemiBold
-            )
-            Spacer(modifier = Modifier.width(48.dp))
-        }*/
+                Spacer(modifier = Modifier.width(48.dp))
+            }*/
 
         Box(
             modifier = Modifier
@@ -82,27 +78,26 @@ fun DetailsItem(
                 .build()
             val painter = rememberAsyncImagePainter(model)
             Image(
-                modifier = Modifier.fillMaxWidth().align(BottomCenter),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .align(BottomCenter),
                 painter = painter,
                 contentDescription = null,
                 contentScale = ContentScale.FillWidth
             )
             Surface(
                 color = Color(0x7F000000),
-                elevation = 8.dp,
+
                 modifier = Modifier
                     .align(
                         TopStart
                     )
                     .fillMaxWidth()
-                    .padding(
-                        4.dp
-                    )
+
             ) {
                 Row(
                     Modifier
-                        .fillMaxWidth()
-                        .padding(8.dp),
+                        .fillMaxWidth(),
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
 
@@ -114,19 +109,22 @@ fun DetailsItem(
                         Icon(
                             painter = painterResource(id = R.drawable.ic_left),
                             contentDescription = "back",
+                            tint = Color.White,
                             modifier = Modifier.size(32.dp)
                         )
                     }
                     Text(
                         text = "${meals.strMeal}",
-                        fontSize = 18.sp,
                         modifier = Modifier
-                            .padding(8.dp)
+                            .padding(4.dp)
                             .weight(1f),
                         textAlign = TextAlign.Center,
-                        fontWeight = FontWeight.SemiBold
+                        fontWeight = FontWeight.Bold,
+                        color = Color.White,
+                        style = MaterialTheme.typography.h5
+
                     )
-                    Spacer(modifier = Modifier.width(48.dp))
+                    // Spacer(modifier = Modifier.width(48.dp))
                 }
             }
         }
