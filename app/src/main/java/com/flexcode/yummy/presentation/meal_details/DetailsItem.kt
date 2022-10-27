@@ -24,6 +24,7 @@ import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
 import coil.size.Size
 import com.flexcode.yummy.R
+import com.flexcode.yummy.core.ui.theme.SurfaceOverlay
 import com.flexcode.yummy.domain.models.Meals
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 
@@ -36,7 +37,6 @@ fun DetailsItem(
     Column(
         modifier = modifier.fillMaxSize()
     ) {
-
 
         Box(
             modifier = Modifier
@@ -59,7 +59,7 @@ fun DetailsItem(
                 contentScale = ContentScale.FillWidth
             )
             Surface(
-                color = Color(0x7F000000),
+                color = SurfaceOverlay,
 
                 modifier = Modifier
                     .align(
@@ -97,7 +97,6 @@ fun DetailsItem(
                         style = MaterialTheme.typography.h5
 
                     )
-
                 }
             }
         }
