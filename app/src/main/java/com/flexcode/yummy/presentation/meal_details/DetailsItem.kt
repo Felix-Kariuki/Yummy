@@ -15,6 +15,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -35,7 +36,7 @@ fun DetailsItem(
     Column(
         modifier = modifier.fillMaxSize()
     ) {
-       
+
 
         Box(
             modifier = Modifier
@@ -80,7 +81,7 @@ fun DetailsItem(
                     ) {
                         Icon(
                             painter = painterResource(id = R.drawable.ic_left),
-                            contentDescription = "back",
+                            contentDescription = stringResource(R.string.Back),
                             tint = Color.White,
                             modifier = Modifier.size(32.dp)
                         )
@@ -102,7 +103,7 @@ fun DetailsItem(
         }
 
         Text(
-            text = "Ingredients:",
+            text = stringResource(R.string.ingredients_label_text),
             fontSize = 18.sp,
             modifier = Modifier.padding(8.dp),
             fontWeight = FontWeight.SemiBold
@@ -118,7 +119,7 @@ fun DetailsItem(
         }
 
         Text(
-            text = "Procedure:",
+            text = stringResource(R.string.procedure_text_header),
             fontSize = 18.sp,
             modifier = Modifier.padding(8.dp),
             fontWeight = FontWeight.SemiBold
