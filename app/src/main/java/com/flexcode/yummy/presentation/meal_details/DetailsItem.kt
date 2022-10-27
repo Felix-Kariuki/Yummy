@@ -37,7 +37,7 @@ fun DetailsItem(
     Column(
         modifier = modifier.fillMaxSize()
     ) {
-        Row(
+    /*    Row(
             Modifier
                 .fillMaxWidth()
                 .padding(8.dp),
@@ -65,7 +65,7 @@ fun DetailsItem(
                 fontWeight = FontWeight.SemiBold
             )
             Spacer(modifier = Modifier.width(48.dp))
-        }
+        }*/
 
         Column(
             modifier = modifier
@@ -85,7 +85,7 @@ fun DetailsItem(
                 contentDescription = null,
                 contentScale = ContentScale.FillWidth
             )
-       
+
         }
         Text(
             text = "Ingredients:",
