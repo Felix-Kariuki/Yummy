@@ -1,13 +1,9 @@
 package com.flexcode.yummy.presentation.meals_screen
 
-import androidx.compose.runtime.State
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.setValue
+import androidx.compose.runtime.*
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.flexcode.yummy.domain.use_case.GetCategoriesUseCase
-import com.flexcode.yummy.domain.use_case.GetMealsUseCase
+import com.flexcode.yummy.domain.use_case.UseCaseContainer
 import com.flexcode.yummy.utils.Constants.DELAY_TIME
 import com.flexcode.yummy.utils.Resource
 import com.flexcode.yummy.utils.UiEvent
@@ -17,14 +13,14 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 
 @HiltViewModel
 class MealsViewModel @Inject constructor(
-    private val getMealsUseCase: GetMealsUseCase,
-    private val getCategoriesUseCase: GetCategoriesUseCase
+    private val useCaseContainer: UseCaseContainer
 ) : ViewModel() {
-
 
     private val _categoryState = mutableStateOf(CategoriesState())
     val categoryState: State<CategoriesState> = _categoryState
@@ -33,7 +29,6 @@ class MealsViewModel @Inject constructor(
 
     private val _eventFlow = MutableSharedFlow<UiEvent>()
     val eventFlow = _eventFlow.asSharedFlow()
-
 
     private var searchJob: Job? = null
 
@@ -44,7 +39,7 @@ class MealsViewModel @Inject constructor(
 
     private fun getCategories() {
         viewModelScope.launch {
-            getCategoriesUseCase().collect { result ->
+            useCaseContainer.getCategoriesUseCase().collect { result ->
                 when (result) {
                     is Resource.Success ->
                         _categoryState.value = result.data?.let {
@@ -79,6 +74,19 @@ class MealsViewModel @Inject constructor(
                     getMeals()
                 }
             }
+            is MealsEvent.OnClickCategoryItem -> {
+
+                useCaseContainer.getMealsByCategoryUseCase(event.category).onEach {
+
+                    state = state.copy(meals = it)
+                }.launchIn(viewModelScope)
+            }
+
+            is MealsEvent.OnClickClearText -> {
+
+                state = state.copy(searchMeal = "")
+                getMeals()
+            }
         }
     }
 
@@ -88,7 +96,7 @@ class MealsViewModel @Inject constructor(
     ) {
 
         viewModelScope.launch {
-            getMealsUseCase(meal, fetchFromRemote)
+            useCaseContainer.getMealsUseCase(meal, fetchFromRemote)
                 .collect { result ->
                     when (result) {
                         is Resource.Success -> {

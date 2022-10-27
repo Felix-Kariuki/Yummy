@@ -45,7 +45,8 @@ class CategoriesRepositoryImpl @Inject constructor(
             )
         }
 
-        val newCategories = dao.getCategories().map { it.toCategories() }
+        val newCategories = dao.getCategories()
+            .map { it.toCategories() }
         emit(Resource.Success(newCategories))
     }
 }

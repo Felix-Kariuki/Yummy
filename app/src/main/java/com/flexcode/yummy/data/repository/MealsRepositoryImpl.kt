@@ -12,6 +12,7 @@ import java.io.IOException
 import javax.inject.Inject
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.map
 
 class MealsRepositoryImpl @Inject constructor(
     private val dao: MealsDao,
@@ -27,7 +28,8 @@ class MealsRepositoryImpl @Inject constructor(
             emit(Resource.Loading())
 
             // local
-            val localMeals = dao.getMeals(meal).map { it.toMeals() }
+            val localMeals = dao.getMeals(meal)
+                .map { it.toMeals() }
             emit(Resource.Success(data = localMeals))
 
             val noLocalCache = localMeals.isEmpty()
@@ -58,8 +60,18 @@ class MealsRepositoryImpl @Inject constructor(
                 )
             }
 
-            val newMeals = dao.getMeals(meal).map { it.toMeals() }
+            val newMeals = dao.getMeals(meal)
+                .map { it.toMeals() }
             emit(Resource.Success(newMeals))
         }
+    }
+
+    override fun getMealsByCategory(category: String): Flow<List<Meals>> {
+        return dao.getMealsByCategory(category = category)
+            .map {
+
+                meals ->
+                meals.map { it.toMeals() }
+            }
     }
 }
