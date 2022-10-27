@@ -118,30 +118,24 @@ fun DetailsItem(
                     )
                     Spacer(modifier = Modifier.width(48.dp))
                 }
+                val model = ImageRequest.Builder(LocalContext.current)
+                        .data("${meals.strMealThumb}")
+                        .size(Size.ORIGINAL)
+                        .crossfade(true)
+                        .build()
+                val painter = rememberAsyncImagePainter(model)
+                Image(
+                        modifier = Modifier.fillMaxWidth(),
+                        painter = painter,
+                        contentDescription = null,
+                        contentScale = ContentScale.FillWidth
+                )
+
 
             }
 
         }
-        Column(
-            modifier = modifier
-                    .fillMaxWidth()
-                    .height(300.dp),
-            horizontalAlignment = CenterHorizontally
-        ) {
-            val model = ImageRequest.Builder(LocalContext.current)
-                .data("${meals.strMealThumb}")
-                .size(Size.ORIGINAL)
-                .crossfade(true)
-                .build()
-            val painter = rememberAsyncImagePainter(model)
-            Image(
-                modifier = Modifier.fillMaxWidth(),
-                painter = painter,
-                contentDescription = null,
-                contentScale = ContentScale.FillWidth
-            )
-
-        }
+       
         Text(
             text = "Ingredients:",
             fontSize = 18.sp,
