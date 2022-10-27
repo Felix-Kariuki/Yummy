@@ -13,7 +13,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.BottomCenter
 import androidx.compose.ui.Alignment.Companion.Center
-import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Alignment.Companion.TopStart
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -70,72 +69,68 @@ fun DetailsItem(
             Spacer(modifier = Modifier.width(48.dp))
         }*/
 
-        
         Box(
-                modifier = Modifier
-                        .fillMaxWidth()
-                        .aspectRatio(5f / 4f), contentAlignment = BottomCenter
-        ){
-
+            modifier = Modifier
+                .fillMaxWidth()
+                .aspectRatio(5f / 4f),
+            contentAlignment = BottomCenter
+        ) {
+            val model = ImageRequest.Builder(LocalContext.current)
+                .data("${meals.strMealThumb}")
+                .size(Size.ORIGINAL)
+                .crossfade(true)
+                .build()
+            val painter = rememberAsyncImagePainter(model)
+            Image(
+                modifier = Modifier.fillMaxWidth().align(BottomCenter),
+                painter = painter,
+                contentDescription = null,
+                contentScale = ContentScale.FillWidth
+            )
             Surface(
-                    color = Color(0x7F000000),
-                    elevation = 8.dp,
-                    modifier = Modifier
-                            .align(
-                                    TopStart
-                            )
-                            .fillMaxWidth()
-                            .padding(
-                                    4.dp
-                            )
+                color = Color(0x7F000000),
+                elevation = 8.dp,
+                modifier = Modifier
+                    .align(
+                        TopStart
+                    )
+                    .fillMaxWidth()
+                    .padding(
+                        4.dp
+                    )
             ) {
                 Row(
-                        Modifier
-                                .fillMaxWidth()
-                                .padding(8.dp),
-                        verticalAlignment = Alignment.CenterVertically,
+                    Modifier
+                        .fillMaxWidth()
+                        .padding(8.dp),
+                    verticalAlignment = Alignment.CenterVertically,
                 ) {
 
                     IconButton(
-                            onClick = {
-                                navigator.popBackStack()
-                            },
+                        onClick = {
+                            navigator.popBackStack()
+                        },
                     ) {
                         Icon(
-                                painter = painterResource(id = R.drawable.ic_left),
-                                contentDescription = "back",
-                                modifier = Modifier.size(32.dp)
+                            painter = painterResource(id = R.drawable.ic_left),
+                            contentDescription = "back",
+                            modifier = Modifier.size(32.dp)
                         )
                     }
                     Text(
-                            text = "${meals.strMeal}",
-                            fontSize = 18.sp,
-                            modifier = Modifier
-                                    .padding(8.dp)
-                                    .weight(1f),
-                            textAlign = TextAlign.Center,
-                            fontWeight = FontWeight.SemiBold
+                        text = "${meals.strMeal}",
+                        fontSize = 18.sp,
+                        modifier = Modifier
+                            .padding(8.dp)
+                            .weight(1f),
+                        textAlign = TextAlign.Center,
+                        fontWeight = FontWeight.SemiBold
                     )
                     Spacer(modifier = Modifier.width(48.dp))
                 }
-                val model = ImageRequest.Builder(LocalContext.current)
-                        .data("${meals.strMealThumb}")
-                        .size(Size.ORIGINAL)
-                        .crossfade(true)
-                        .build()
-                val painter = rememberAsyncImagePainter(model)
-                Image(
-                        modifier = Modifier.fillMaxWidth(),
-                        painter = painter,
-                        contentDescription = null,
-                        contentScale = ContentScale.FillWidth
-                )
-
-
             }
-
         }
-       
+
         Text(
             text = "Ingredients:",
             fontSize = 18.sp,
@@ -196,8 +191,8 @@ fun TestList(
             Row(Modifier.padding(4.dp), verticalAlignment = Alignment.CenterVertically) {
                 Canvas(
                     modifier = Modifier
-                            .padding(start = 8.dp, end = 8.dp)
-                            .size(6.dp)
+                        .padding(start = 8.dp, end = 8.dp)
+                        .size(6.dp)
                 ) {
                     drawCircle(Color.Black)
                 }
