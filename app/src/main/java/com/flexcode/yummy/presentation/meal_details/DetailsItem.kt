@@ -7,11 +7,14 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
+import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.Alignment.Companion.BottomCenter
 import androidx.compose.ui.Alignment.Companion.Center
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
+import androidx.compose.ui.Alignment.Companion.TopStart
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
@@ -67,10 +70,34 @@ fun DetailsItem(
             Spacer(modifier = Modifier.width(48.dp))
         }*/
 
+        
+        Box(
+                modifier = Modifier
+                        .fillMaxWidth()
+                        .aspectRatio(5f / 4f), contentAlignment = BottomCenter
+        ){
+
+            Surface(
+                    color = Color(0x7F000000),
+                    elevation = 8.dp,
+                    modifier = Modifier
+                            .align(
+                                    TopStart
+                            )
+                            .fillMaxWidth()
+                            .padding(
+                                    4.dp
+                            )
+            ) {
+
+
+            }
+
+        }
         Column(
             modifier = modifier
-                .fillMaxWidth()
-                .height(300.dp),
+                    .fillMaxWidth()
+                    .height(300.dp),
             horizontalAlignment = CenterHorizontally
         ) {
             val model = ImageRequest.Builder(LocalContext.current)
@@ -147,8 +174,8 @@ fun TestList(
             Row(Modifier.padding(4.dp), verticalAlignment = Alignment.CenterVertically) {
                 Canvas(
                     modifier = Modifier
-                        .padding(start = 8.dp, end = 8.dp)
-                        .size(6.dp)
+                            .padding(start = 8.dp, end = 8.dp)
+                            .size(6.dp)
                 ) {
                     drawCircle(Color.Black)
                 }
