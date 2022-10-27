@@ -85,19 +85,7 @@ fun DetailsItem(
                 contentDescription = null,
                 contentScale = ContentScale.FillWidth
             )
-            /*Image(
-                painter = rememberAsyncImagePainter(
-                    ImageRequest.Builder(LocalContext.current)
-                        .data(data = meals.strMealThumb)
-                        .apply(block = fun ImageRequest.Builder.() {
-                            crossfade(true)
-                            //placeholder(R.drawable.ic_placeholder)
-                        }).build()
-                ),
-                contentDescription = null,
-                modifier = modifier.align(CenterHorizontally),
-                contentScale = ContentScale.Fit
-            )*/
+       
         }
         Text(
             text = "Ingredients:",
