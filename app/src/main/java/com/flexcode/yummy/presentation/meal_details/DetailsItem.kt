@@ -35,35 +35,7 @@ fun DetailsItem(
     Column(
         modifier = modifier.fillMaxSize()
     ) {
-        /*    Row(
-                Modifier
-                    .fillMaxWidth()
-                    .padding(8.dp),
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-
-                IconButton(
-                    onClick = {
-                        navigator.popBackStack()
-                    },
-                ) {
-                    Icon(
-                        painter = painterResource(id = R.drawable.ic_left),
-                        contentDescription = "back",
-                        modifier = Modifier.size(32.dp)
-                    )
-                }
-                Text(
-                    text = "${meals.strMeal}",
-                    fontSize = 18.sp,
-                    modifier = Modifier
-                        .padding(8.dp)
-                        .weight(1f),
-                    textAlign = TextAlign.Center,
-                    fontWeight = FontWeight.SemiBold
-                )
-                Spacer(modifier = Modifier.width(48.dp))
-            }*/
+       
 
         Box(
             modifier = Modifier
@@ -124,7 +96,7 @@ fun DetailsItem(
                         style = MaterialTheme.typography.h5
 
                     )
-                    // Spacer(modifier = Modifier.width(48.dp))
+
                 }
             }
         }
