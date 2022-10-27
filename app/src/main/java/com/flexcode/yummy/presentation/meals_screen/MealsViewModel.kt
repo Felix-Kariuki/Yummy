@@ -19,7 +19,7 @@ import kotlinx.coroutines.launch
 
 @HiltViewModel
 class MealsViewModel @Inject constructor(
-    private val container: UseCaseContainer
+    private val useCaseContainer: UseCaseContainer
 ) : ViewModel() {
 
     private val _categoryState = mutableStateOf(CategoriesState())
@@ -39,7 +39,7 @@ class MealsViewModel @Inject constructor(
 
     private fun getCategories() {
         viewModelScope.launch {
-            container.getCategoriesUseCase().collect { result ->
+            useCaseContainer.getCategoriesUseCase().collect { result ->
                 when (result) {
                     is Resource.Success ->
                         _categoryState.value = result.data?.let {
@@ -76,7 +76,7 @@ class MealsViewModel @Inject constructor(
             }
             is MealsEvent.OnClickCategoryItem -> {
 
-                container.getMealsByCategoryUseCase(event.category).onEach {
+                useCaseContainer.getMealsByCategoryUseCase(event.category).onEach {
 
                     state = state.copy(meals = it)
                 }.launchIn(viewModelScope)
@@ -96,7 +96,7 @@ class MealsViewModel @Inject constructor(
     ) {
 
         viewModelScope.launch {
-            container.getMealsUseCase(meal, fetchFromRemote)
+            useCaseContainer.getMealsUseCase(meal, fetchFromRemote)
                 .collect { result ->
                     when (result) {
                         is Resource.Success -> {
