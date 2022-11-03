@@ -10,7 +10,7 @@ private val DarkColorPalette = darkColors(
     primary = Purple200,
     primaryVariant = Purple700,
     secondary = Teal200,
-    background = ColorGreen,
+    background = MatteBlack,
     surface = Black,
     onSurface = AntiFlashWhite,
 )
@@ -47,4 +47,15 @@ fun YummyTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable 
         shapes = Shapes,
         content = content
     )
+
+//    val systemUiController = rememberSystemUiController()
+//    if (darkTheme) {
+//        systemUiController.setSystemBarsColor(
+//            color = Graffiti
+//        )
+//    } else {
+//        systemUiController.setSystemBarsColor(
+//            color = ColorGreen
+//        )
+//    }
 }
