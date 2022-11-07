@@ -1,4 +1,4 @@
-package com.flexcode.yummy
+package com.flexcode.yummy.data
 
 import android.content.Context
 import androidx.test.espresso.matcher.ViewMatchers

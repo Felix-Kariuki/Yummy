@@ -3,10 +3,10 @@ package com.flexcode.yummy.presentation.meals_screen
 import androidx.compose.runtime.*
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.flexcode.yummy.domain.use_case.UseCaseContainer
-import com.flexcode.yummy.utils.Constants.DELAY_TIME
-import com.flexcode.yummy.utils.Resource
-import com.flexcode.yummy.utils.UiEvent
+import com.flexcode.yummy.core.utils.Constants.DELAY_TIME
+import com.flexcode.yummy.core.utils.Resource
+import com.flexcode.yummy.core.utils.UiEvent
+import com.flexcode.yummy.domain.use_cases.UseCaseContainer
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 import kotlinx.coroutines.Job

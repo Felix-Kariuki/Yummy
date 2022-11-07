@@ -1,13 +1,15 @@
+import com.flexcode.yummy.buidlsrc.Libs
+import com.flexcode.yummy.buidlsrc.SDK
+
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
-    id 'kotlin-parcelize'
-    id 'com.google.devtools.ksp' version '1.6.10-1.0.2'
+    id 'com.google.devtools.ksp' version '1.7.20-1.0.6'
     id 'com.google.gms.google-services'
     id 'com.google.firebase.crashlytics'
-    id "org.jlleitschuh.gradle.ktlint" version "11.0.0"
+    id "org.jlleitschuh.gradle.ktlint" version '11.0.0'
 }
 
 kotlin {
@@ -22,14 +24,14 @@ kotlin {
 }
 
 android {
-    compileSdk rootProject.COMPILE_SDK
+    compileSdk SDK.max
 
     defaultConfig {
         applicationId "com.flexcode.yummy"
-        minSdk rootProject.MIN_SDK
-        targetSdk rootProject.TARGET_SDK
-        versionCode 4
-        versionName "1.0.2"
+        minSdk SDK.min
+        targetSdk SDK.max
+        versionCode 5
+        versionName "1.1.2"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -56,32 +58,12 @@ android {
         compose true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion compose_version
+        kotlinCompilerExtensionVersion Libs.Kotlin.kotlinCompiler
     }
     packagingOptions {
         resources {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
         }
-    }
-    lintOptions {
-        // Turns off checks for the issue IDs you specify.
-        disable("TypographyFractions")
-        disable("TypographyQuotes")
-        // Turns on checks for the issue IDs you specify. These checks are in
-        // addition to the default lint checks.
-        enable("RtlHardcoded")
-        enable("RtlCompat")
-        enable("RtlEnabled")
-        // To enable checks for only a subset of issue IDs and ignore all others,
-        // list the issue IDs with the 'check' property instead. This property overrides
-        // any issue IDs you enable or disable using the properties above.
-        checkOnly("NewApi", "InlinedApi")
-        // If set to true, turns off analysis progress reporting by lint.
-        quiet = true
-        // If set to true (default), stops the build if errors are found.
-        abortOnError = false
-        // If true, only report errors.
-        ignoreWarnings = true
     }
 }
 
@@ -100,71 +82,80 @@ ktlint{
 
 dependencies {
 
-    // Support Libraries
-    implementation "androidx.core:core-ktx:$androidx_ktx"
-    implementation "androidx.compose.ui:ui:$compose_version"
-    implementation "androidx.compose.material:material:$compose_version"
-    implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
-    implementation "androidx.activity:activity-compose:$activity_compose"
-    implementation 'com.google.firebase:firebase-crashlytics-ktx:18.2.13'
-    implementation 'com.google.firebase:firebase-analytics-ktx:21.1.1'
-    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
-    debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
-    debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_version"
+    implementation project(':data')
+    implementation project(":domain")
+    implementation project(":core")
 
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_ktx"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycle_compose"
+    implementation Libs.AndroidX.coreKtx
+    implementation Libs.AndroidX.Compose.ui
+    implementation Libs.AndroidX.Compose.material
+    implementation Libs.AndroidX.Compose.toolingPreview
+    implementation Libs.AndroidX.Activity.activityCompose
 
-    implementation "androidx.compose.material:material-icons-extended:$compose_version"
-    implementation "com.google.accompanist:accompanist-flowlayout:$flow_layout"
-    implementation "androidx.paging:paging-compose:$paging_compose"
-    implementation "com.google.accompanist:accompanist-swiperefresh:$swipe_refresh"
+    //lifecycle
+    implementation Libs.AndroidX.Lifecycle.runtime
+    implementation Libs.AndroidX.Lifecycle.viewModelCompose
+
+    implementation Libs.AndroidX.Compose.materialIcons
+
+
+    implementation Libs.Accompanist.flowLayout
+    implementation Libs.Accompanist.swipeRefresh
 
     // Navigation
-    ksp "io.github.raamcosta.compose-destinations:ksp:$navigation_compose"
-    implementation "io.github.raamcosta.compose-destinations:core:$navigation_compose"
+    ksp Libs.Navigation.raamcostaDestination
+    implementation Libs.Navigation.raamcostaDestinationCore
+    implementation Libs.Navigation.navCompose
 
     // Coil
-    implementation "io.coil-kt:coil-compose:$coil_compose"
+    implementation Libs.Coil.coil
+
+    //firebase
+    implementation Libs.Firebase.crashlytics
+    implementation Libs.Firebase.analytics
 
     //Dagger - Hilt
-    implementation "com.google.dagger:hilt-android:$dagger_hilt"
-    kapt "com.google.dagger:hilt-android-compiler:$dagger_hilt"
-    //implementation "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03"
-    kapt "androidx.hilt:hilt-compiler:$hilt_compiler"
-    implementation "androidx.hilt:hilt-navigation-compose:$hilt_navigation"
+    implementation Libs.Dagger.hilt
+    kapt Libs.Dagger.hiltCompiler
+    kapt Libs.Dagger.androidXHilt
+    implementation Libs.Dagger.hiltNavigation
 
     // Retrofit
-    implementation "com.squareup.retrofit2:retrofit:$retrofit"
-    implementation "com.squareup.retrofit2:converter-gson:$retrofit"
-    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_logging"
+    implementation Libs.Retrofit.retrofit
+    implementation Libs.Retrofit.retrofitConverter
+    implementation Libs.Retrofit.logging
 
     // Room
-    implementation "androidx.room:room-runtime:$room"
-    kapt "androidx.room:room-compiler:$room"
-    implementation "androidx.room:room-ktx:$room"
+    implementation Libs.Room.runtime
+    kapt Libs.Room.compiler
+    implementation Libs.Room.roomKtx
 
     //Timber logging
-    implementation "com.jakewharton.timber:timber:$timber"
+    implementation Libs.Logging.timber
 
-    //shimmer
-    implementation "com.facebook.shimmer:shimmer:$shimmer"
 
     // Testing
-    androidTestImplementation "com.google.truth:truth:1.0.1"
-    testImplementation "junit:junit:$junit"
-    androidTestImplementation "androidx.test.ext:junit:$androidx_junit"
-    androidTestImplementation "androidx.test.espresso:espresso-core:$androidx_espresso"
-    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
-    debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_version"
-    androidTestImplementation "junit:junit:$junit"
-    androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines_test"
-    androidTestImplementation "androidx.arch.core:core-testing:$arch_test"
-    androidTestImplementation "com.google.truth:truth:$google_truth"
-    androidTestImplementation "androidx.test:core-ktx:$androidx_ktx_test"
-    androidTestImplementation "com.squareup.okhttp3:mockwebserver:$okhttp_mockwebserver"
-    testImplementation "org.mockito:mockito-android:$mockito"
-    androidTestImplementation "org.mockito:mockito-android:$mockito"
-    androidTestImplementation "com.google.dagger:hilt-android-testing:$hilt_test"
-    kaptAndroidTest "com.google.dagger:hilt-android-compiler:$hilt_test"
+    androidTestImplementation Libs.Testing.truth
+    androidTestImplementation Libs.Testing.mockWebServer
+    testImplementation Libs.Testing.jUnit
+    androidTestImplementation Libs.Testing.testJUnit
+    androidTestImplementation Libs.Testing.espresso
+
+    testImplementation Libs.Testing.mockito
+    androidTestImplementation Libs.Testing.mockito
+    androidTestImplementation Libs.Testing.composeUi
+
+//    androidTestImplementation "com.google.truth:truth:1.1.3"
+//    testImplementation "junit:junit:4.13.2"
+//    androidTestImplementation "androidx.test.ext:junit:1.1.3"
+//    androidTestImplementation "androidx.test.espresso:espresso-core:3.4.0"
+//    debugImplementation "androidx.compose.ui:ui-test-manifest:1.4.0-alpha01"
+//    androidTestImplementation "junit:junit:4.13.2"
+//    androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.1"
+//    androidTestImplementation "androidx.arch.core:core-testing:2.1.0"
+//    androidTestImplementation "androidx.test:core-ktx:1.4.0"
+//    androidTestImplementation "com.squareup.okhttp3:mockwebserver:4.9.3"
+//    androidTestImplementation "com.google.dagger:hilt-android-testing:2.42"
+//    kaptAndroidTest "com.google.dagger:hilt-android-compiler:2.44"
+//    debugImplementation "androidx.compose.ui:ui-tooling:1.4.0-alpha01"
 }
