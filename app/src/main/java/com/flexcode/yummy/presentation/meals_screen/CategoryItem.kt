@@ -56,8 +56,6 @@ fun CategoryItem(
                     .height(100.dp)
                     .fillMaxWidth()
                     .align(Alignment.CenterHorizontally)
-                    .clickable {
-                    }
                     .wrapContentSize(),
             )
 
