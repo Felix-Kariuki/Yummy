@@ -48,7 +48,7 @@ object Libs {
 
         //implementation "androidx.paging:paging-compose:1.0.0-alpha17"
         const val swipeRefresh = "com.google.accompanist:accompanist-swiperefresh:0.24.2-alpha"
-
+        const val systemUi = "com.google.accompanist:accompanist-systemuicontroller:0.27.0"
     }
 
     object Navigation {
@@ -106,6 +106,8 @@ object Libs {
         const val mockitoVersion = "4.6.1"
         const val mockito = "org.mockito:mockito-android:$mockitoVersion"
         const val composeUi = "androidx.compose.ui:ui-test-junit4:1.4.0-alpha01"
+        const val uiAutomator = "androidx.test.uiautomator:uiautomator:2.2.0"
+        const val benchmark = "androidx.benchmark:benchmark-macro-junit4:1.1.0"
 
     }
 
