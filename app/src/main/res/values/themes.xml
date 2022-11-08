@@ -3,8 +3,9 @@
 
     <style name="Theme.Yummy" parent="android:Theme.Material.Light.NoActionBar">
 
-
         <item name="android:statusBarColor" tools:targetApi="l">#2DA231</item>
+        <item name="android:windowDisablePreview">true</item>
+
 
     </style>
 </resources>

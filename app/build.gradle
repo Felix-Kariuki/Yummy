@@ -43,7 +43,13 @@ android {
         release {
             minifyEnabled true
             shrinkResources true
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'),
+                    'proguard-rules.pro'
+        }
+        benchmark {
+            signingConfig signingConfigs.debug
+            matchingFallbacks = ['release']
+            debuggable false
         }
     }
     compileOptions {
@@ -101,6 +107,7 @@ dependencies {
 
     implementation Libs.Accompanist.flowLayout
     implementation Libs.Accompanist.swipeRefresh
+    implementation Libs.Accompanist.systemUi
 
     // Navigation
     ksp Libs.Navigation.raamcostaDestination
