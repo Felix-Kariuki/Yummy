@@ -1,4 +1,4 @@
-package com.flexcode.yummy.core.utils
+package com.flexcode.yummy.common.utils
 
 object Constants {
     const val BASE_URL = "https://www.themealdb.com/api/"

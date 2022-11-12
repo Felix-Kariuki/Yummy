@@ -1,4 +1,4 @@
-package com.flexcode.yummy.core.utils
+package com.flexcode.yummy.common.utils
 
 typealias SimpleResource = Resource<Unit>
 

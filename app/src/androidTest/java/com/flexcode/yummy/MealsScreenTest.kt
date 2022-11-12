@@ -3,10 +3,9 @@ package com.flexcode.yummy
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onNodeWithText
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
-import com.flexcode.yummy.core.MainActivity
-import com.flexcode.yummy.core.ui.theme.YummyTheme
 import com.flexcode.yummy.domain.models.Meals
 import com.flexcode.yummy.presentation.meals_screen.MealsScreen
+import com.flexcode.yummy.ui.theme.YummyTheme
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import org.junit.Rule
 import org.junit.Test

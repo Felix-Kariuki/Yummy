@@ -1,6 +1,6 @@
 package com.flexcode.yummy.domain.use_cases
 
-import com.flexcode.yummy.core.utils.Resource
+import com.flexcode.yummy.common.utils.Resource
 import com.flexcode.yummy.domain.models.Categories
 import com.flexcode.yummy.domain.repository.CategoriesRepository
 import kotlinx.coroutines.flow.Flow

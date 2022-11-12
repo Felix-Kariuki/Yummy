@@ -24,8 +24,8 @@ import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
 import coil.size.Size
 import com.flexcode.yummy.R
-import com.flexcode.yummy.core.ui.theme.SurfaceOverlay
 import com.flexcode.yummy.domain.models.Meals
+import com.flexcode.yummy.ui.theme.SurfaceOverlay
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 
 @Composable

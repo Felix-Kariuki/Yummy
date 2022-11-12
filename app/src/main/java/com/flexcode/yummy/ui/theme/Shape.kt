@@ -1,4 +1,4 @@
-package com.flexcode.yummy.core.ui.theme
+package com.flexcode.yummy.ui.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes

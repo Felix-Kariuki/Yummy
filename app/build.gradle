@@ -90,7 +90,7 @@ dependencies {
 
     implementation project(':data')
     implementation project(":domain")
-    implementation project(":core")
+    implementation project(':common')
 
     implementation Libs.AndroidX.coreKtx
     implementation Libs.AndroidX.Compose.ui
