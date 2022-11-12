@@ -1,6 +1,6 @@
 package com.flexcode.yummy.data.di
 
-import com.flexcode.yummy.core.utils.Constants
+import com.flexcode.yummy.common.utils.Constants
 import com.flexcode.yummy.data.remote.ApiService
 import dagger.Module
 import dagger.Provides

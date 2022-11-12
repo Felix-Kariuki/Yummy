@@ -1,6 +1,6 @@
 package com.flexcode.yummy.data.repository
 
-import com.flexcode.yummy.core.utils.Resource
+import com.flexcode.yummy.common.utils.Resource
 import com.flexcode.yummy.data.local.dao.MealsDao
 import com.flexcode.yummy.data.remote.ApiService
 import com.flexcode.yummy.data.remote.mapper.toMeals

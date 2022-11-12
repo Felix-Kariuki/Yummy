@@ -1,4 +1,4 @@
-package com.flexcode.yummy.core
+package com.flexcode.yummy
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -7,8 +7,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
-import com.flexcode.yummy.core.ui.theme.YummyTheme
 import com.flexcode.yummy.presentation.NavGraphs
+import com.flexcode.yummy.ui.theme.YummyTheme
 import com.ramcosta.composedestinations.DestinationsNavHost
 import dagger.hilt.android.AndroidEntryPoint
 

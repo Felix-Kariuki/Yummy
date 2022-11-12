@@ -1,6 +1,6 @@
 package com.flexcode.yummy.domain.repository
 
-import com.flexcode.yummy.core.utils.Resource
+import com.flexcode.yummy.common.utils.Resource
 import com.flexcode.yummy.domain.models.Meals
 import kotlinx.coroutines.flow.Flow
 
