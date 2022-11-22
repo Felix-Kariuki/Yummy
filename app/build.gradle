@@ -2,14 +2,14 @@ import com.flexcode.yummy.buidlsrc.Libs
 import com.flexcode.yummy.buidlsrc.SDK
 
 plugins {
-    id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
-    id 'kotlin-kapt'
-    id 'dagger.hilt.android.plugin'
-    id 'com.google.devtools.ksp' version '1.7.20-1.0.6'
-    id 'com.google.gms.google-services'
-    id 'com.google.firebase.crashlytics'
-    id "org.jlleitschuh.gradle.ktlint" version '11.0.0'
+    id ("com.android.application")
+    id ("org.jetbrains.kotlin.android")
+    id ("kotlin-kapt")
+    id ("dagger.hilt.android.plugin")
+    id ("com.google.devtools.ksp") version "1.7.20-1.0.6"
+    id ("com.google.gms.google-services")
+    id ("com.google.firebase.crashlytics")
+    id ("org.jlleitschuh.gradle.ktlint") version "11.0.0"
 }
 
 kotlin {
@@ -24,16 +24,16 @@ kotlin {
 }
 
 android {
-    compileSdk SDK.max
+    compileSdk = SDK.max
 
     defaultConfig {
-        applicationId "com.flexcode.yummy"
-        minSdk SDK.min
-        targetSdk SDK.max
-        versionCode 5
-        versionName "1.1.2"
+        applicationId = "com.flexcode.yummy"
+        minSdk = SDK.min
+        targetSdk = SDK.max
+        versionCode = 6
+        versionName = "1.1.3"
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary true
         }
@@ -41,15 +41,15 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled true
-            shrinkResources true
+            minifyEnabled = true
+            shrinkResources = true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'),
                     'proguard-rules.pro'
         }
         benchmark {
             signingConfig signingConfigs.debug
             matchingFallbacks = ['release']
-            debuggable false
+            debuggable = false
         }
     }
     compileOptions {
@@ -58,10 +58,10 @@ android {
     }
 
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = "1.8"
     }
     buildFeatures {
-        compose true
+        compose = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion Libs.Kotlin.kotlinCompiler
@@ -88,69 +88,69 @@ ktlint{
 
 dependencies {
 
-    implementation project(':data')
-    implementation project(":domain")
-    implementation project(':common')
+    implementation (project(":data"))
+    implementation (project(":domain"))
+    implementation (project(":common"))
 
-    implementation Libs.AndroidX.coreKtx
-    implementation Libs.AndroidX.Compose.ui
-    implementation Libs.AndroidX.Compose.material
-    implementation Libs.AndroidX.Compose.toolingPreview
-    implementation Libs.AndroidX.Activity.activityCompose
+    implementation (Libs.AndroidX.coreKtx)
+    implementation (Libs.AndroidX.Compose.ui)
+    implementation (Libs.AndroidX.Compose.material)
+    implementation (Libs.AndroidX.Compose.toolingPreview)
+    implementation (Libs.AndroidX.Activity.activityCompose)
 
     //lifecycle
-    implementation Libs.AndroidX.Lifecycle.runtime
-    implementation Libs.AndroidX.Lifecycle.viewModelCompose
+    implementation (Libs.AndroidX.Lifecycle.runtime)
+    implementation (Libs.AndroidX.Lifecycle.viewModelCompose)
 
-    implementation Libs.AndroidX.Compose.materialIcons
+    implementation (Libs.AndroidX.Compose.materialIcons)
 
 
-    implementation Libs.Accompanist.flowLayout
-    implementation Libs.Accompanist.swipeRefresh
-    implementation Libs.Accompanist.systemUi
+    implementation (Libs.Accompanist.flowLayout)
+    implementation (Libs.Accompanist.swipeRefresh)
+    implementation (Libs.Accompanist.systemUi)
 
     // Navigation
-    ksp Libs.Navigation.raamcostaDestination
-    implementation Libs.Navigation.raamcostaDestinationCore
-    implementation Libs.Navigation.navCompose
+    ksp (Libs.Navigation.raamcostaDestination)
+    implementation (Libs.Navigation.raamcostaDestinationCore)
+    implementation (Libs.Navigation.navCompose)
 
     // Coil
-    implementation Libs.Coil.coil
+    implementation (Libs.Coil.coil)
 
     //firebase
-    implementation Libs.Firebase.crashlytics
-    implementation Libs.Firebase.analytics
+    implementation (Libs.Firebase.crashlytics)
+    implementation (Libs.Firebase.analytics)
 
     //Dagger - Hilt
-    implementation Libs.Dagger.hilt
-    kapt Libs.Dagger.hiltCompiler
-    kapt Libs.Dagger.androidXHilt
-    implementation Libs.Dagger.hiltNavigation
+    implementation (Libs.Dagger.hilt)
+    kapt (Libs.Dagger.hiltCompiler)
+    kapt (Libs.Dagger.androidXHilt)
+    implementation (Libs.Dagger.hiltNavigation)
 
     // Retrofit
-    implementation Libs.Retrofit.retrofit
-    implementation Libs.Retrofit.retrofitConverter
-    implementation Libs.Retrofit.logging
+    implementation (Libs.Retrofit.retrofit)
+    implementation (Libs.Retrofit.retrofitConverter)
+    implementation (Libs.Retrofit.logging)
 
     // Room
-    implementation Libs.Room.runtime
-    kapt Libs.Room.compiler
-    implementation Libs.Room.roomKtx
+    implementation (Libs.Room.runtime)
+    kapt (Libs.Room.compiler)
+    implementation (Libs.Room.roomKtx)
 
     //Timber logging
-    implementation Libs.Logging.timber
+    implementation (Libs.Logging.timber)
 
 
     // Testing
-    androidTestImplementation Libs.Testing.truth
-    androidTestImplementation Libs.Testing.mockWebServer
-    testImplementation Libs.Testing.jUnit
-    androidTestImplementation Libs.Testing.testJUnit
-    androidTestImplementation Libs.Testing.espresso
+    androidTestImplementation (Libs.Testing.truth)
+    androidTestImplementation (Libs.Testing.mockWebServer)
+    testImplementation (Libs.Testing.jUnit)
+    androidTestImplementation (Libs.Testing.testJUnit)
+    androidTestImplementation (Libs.Testing.espresso)
 
-    testImplementation Libs.Testing.mockito
-    androidTestImplementation Libs.Testing.mockito
-    androidTestImplementation Libs.Testing.composeUi
+    testImplementation (Libs.Testing.mockito)
+    androidTestImplementation (Libs.Testing.mockito)
+    androidTestImplementation (Libs.Testing.composeUi)
 
 //    androidTestImplementation "com.google.truth:truth:1.1.3"
 //    testImplementation "junit:junit:4.13.2"
