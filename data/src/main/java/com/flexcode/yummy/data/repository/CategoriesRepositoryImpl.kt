@@ -7,11 +7,11 @@ import com.flexcode.yummy.data.remote.mapper.toCategories
 import com.flexcode.yummy.data.remote.mapper.toCategoriesEntity
 import com.flexcode.yummy.domain.models.Categories
 import com.flexcode.yummy.domain.repository.CategoriesRepository
-import java.io.IOException
-import javax.inject.Inject
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import retrofit2.HttpException
+import java.io.IOException
+import javax.inject.Inject
 
 class CategoriesRepositoryImpl @Inject constructor(
     private val apiService: ApiService,

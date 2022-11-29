@@ -1,21 +1,21 @@
 package com.flexcode.yummy.presentation.meals_screen
 
-import androidx.compose.runtime.*
+import androidx.compose.runtime.State
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.flexcode.yummy.common.utils.Constants.DELAY_TIME
 import com.flexcode.yummy.common.utils.Resource
-import com.flexcode.yummy.common.utils.UiEvent
 import com.flexcode.yummy.domain.use_cases.UseCaseContainer
 import dagger.hilt.android.lifecycle.HiltViewModel
-import javax.inject.Inject
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.MutableSharedFlow
-import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @HiltViewModel
 class MealsViewModel @Inject constructor(
@@ -26,9 +26,6 @@ class MealsViewModel @Inject constructor(
     val categoryState: State<CategoriesState> = _categoryState
 
     var state by mutableStateOf(MealsState())
-
-    private val _eventFlow = MutableSharedFlow<UiEvent>()
-    val eventFlow = _eventFlow.asSharedFlow()
 
     private var searchJob: Job? = null
 
@@ -112,11 +109,6 @@ class MealsViewModel @Inject constructor(
                                     meals = meals
                                 )
                             }
-                            _eventFlow.emit(
-                                UiEvent.ShowSnackbar(
-                                    result.message ?: "Unknown Error"
-                                )
-                            )
                         }
                         is Resource.Loading -> {
                             state = state.copy(isLoading = true)
