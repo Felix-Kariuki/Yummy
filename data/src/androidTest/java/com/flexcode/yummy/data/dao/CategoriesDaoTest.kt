@@ -5,8 +5,8 @@ import androidx.test.platform.app.InstrumentationRegistry
 import com.flexcode.yummy.data.local.dao.CategoriesDao
 import com.flexcode.yummy.data.local.db.MealsDatabase
 import com.flexcode.yummy.data.local.entity.CategoriesEntity
-import kotlinx.coroutines.runBlocking
 import com.google.common.truth.Truth.assertThat
+import kotlinx.coroutines.runBlocking
 import org.junit.After
 import org.junit.Assert
 import org.junit.Before

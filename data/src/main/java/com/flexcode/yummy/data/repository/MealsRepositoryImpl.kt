@@ -7,12 +7,12 @@ import com.flexcode.yummy.data.remote.mapper.toMeals
 import com.flexcode.yummy.data.remote.mapper.toMealsEntity
 import com.flexcode.yummy.domain.models.Meals
 import com.flexcode.yummy.domain.repository.MealsRepository
-import java.io.IOException
-import javax.inject.Inject
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
 import retrofit2.HttpException
+import java.io.IOException
+import javax.inject.Inject
 
 class MealsRepositoryImpl @Inject constructor(
     private val dao: MealsDao,

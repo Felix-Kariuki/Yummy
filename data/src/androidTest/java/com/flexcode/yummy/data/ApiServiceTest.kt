@@ -5,9 +5,6 @@ import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.platform.app.InstrumentationRegistry
 import com.flexcode.yummy.data.remote.ApiService
 import com.flexcode.yummy.data.remote.dto.MealsDto
-import java.io.InputStream
-import java.net.HttpURLConnection
-import java.util.concurrent.TimeUnit
 import kotlinx.coroutines.runBlocking
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -19,6 +16,9 @@ import org.junit.Before
 import org.junit.Test
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.io.InputStream
+import java.net.HttpURLConnection
+import java.util.concurrent.TimeUnit
 
 class ApiServiceTest {
 

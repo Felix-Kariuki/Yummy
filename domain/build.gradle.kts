@@ -2,15 +2,15 @@ import com.flexcode.yummy.buidlsrc.Libs
 import com.flexcode.yummy.buidlsrc.SDK
 
 plugins {
-    id ("com.android.library")
-    id ("org.jetbrains.kotlin.android")
-    id ("kotlin-parcelize")
+    id("com.android.library")
+    id("org.jetbrains.kotlin.android")
+    id("kotlin-parcelize")
+    id("org.jlleitschuh.gradle.ktlint")
 }
 
 android {
     namespace = "com.flexcode.yummy.domain"
     compileSdk = SDK.max
-
 
     defaultConfig {
         minSdk = SDK.min
@@ -21,7 +21,7 @@ android {
     }
 
     buildTypes {
-        getByName("release"){
+        getByName("release") {
             isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -39,8 +39,8 @@ android {
 }
 
 dependencies {
-    implementation (project(":common"))
-    implementation (Libs.Coroutines.core)
+    implementation(project(":common"))
+    implementation(Libs.Coroutines.core)
 
-    implementation( Libs.Retrofit.retrofitConverter)
+    implementation(Libs.Retrofit.retrofitConverter)
 }
