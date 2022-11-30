@@ -1,4 +1,4 @@
-package com.flexcode.yummy.domain.di
+package com.flexcode.yummy.data.di
 
 import com.flexcode.yummy.data.repository.CategoriesRepositoryImpl
 import com.flexcode.yummy.data.repository.MealsRepositoryImpl
