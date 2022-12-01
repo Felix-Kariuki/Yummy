@@ -102,6 +102,7 @@ subprojects {
         reporters {
             reporter(ReporterType.PLAIN)
             reporter(ReporterType.CHECKSTYLE)
+            reporter(ReporterType.SARIF)
 
             customReporters {
                 register("csv") {

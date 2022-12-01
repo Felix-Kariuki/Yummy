@@ -1,5 +1,5 @@
-import  com.flexcode.yummy.buidlsrc.SDK
-import  com.flexcode.yummy.buidlsrc.Libs
+import com.flexcode.yummy.buidlsrc.Libs
+import com.flexcode.yummy.buidlsrc.SDK
 plugins {
     id("com.android.test")
     id("org.jetbrains.kotlin.android")
