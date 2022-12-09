@@ -44,11 +44,11 @@ object Libs {
     }
 
     object Accompanist {
-        const val flowLayout = "com.google.accompanist:accompanist-flowlayout:0.25.1"
+        const val flowLayout = "com.google.accompanist:accompanist-flowlayout:0.28.0"
 
         //implementation "androidx.paging:paging-compose:1.0.0-alpha17"
-        const val swipeRefresh = "com.google.accompanist:accompanist-swiperefresh:0.24.2-alpha"
-        const val systemUi = "com.google.accompanist:accompanist-systemuicontroller:0.27.0"
+        const val swipeRefresh = "com.google.accompanist:accompanist-swiperefresh:0.28.0"
+        const val systemUi = "com.google.accompanist:accompanist-systemuicontroller:0.28.0"
     }
 
     object Navigation {
@@ -59,11 +59,11 @@ object Libs {
     }
 
     object Coil {
-        const val coil = "io.coil-kt:coil-compose:2.2.1"
+        const val coil = "io.coil-kt:coil-compose:2.2.2"
     }
 
     object Firebase {
-        const val crashlytics = "com.google.firebase:firebase-crashlytics-ktx:18.3.1"
+        const val crashlytics = "com.google.firebase:firebase-crashlytics-ktx:18.3.2"
         const val analytics = "com.google.firebase:firebase-analytics-ktx:21.2.0"
     }
 
@@ -101,8 +101,8 @@ object Libs {
         const val truth = "com.google.truth:truth:1.1.3"
         const val mockWebServer = "com.squareup.okhttp3:mockwebserver:4.9.3"
         const val jUnit = "junit:junit:4.13.2"
-        const val testJUnit  = "androidx.test.ext:junit:1.1.3"
-        const val espresso ="androidx.test.espresso:espresso-core:3.4.0"
+        const val testJUnit  = "androidx.test.ext:junit:1.1.4"
+        const val espresso ="androidx.test.espresso:espresso-core:3.5.0"
         const val mockitoVersion = "4.6.1"
         const val mockito = "org.mockito:mockito-android:$mockitoVersion"
         const val composeUi = "androidx.compose.ui:ui-test-junit4:1.4.0-alpha01"
