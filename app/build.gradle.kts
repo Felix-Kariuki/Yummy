@@ -11,6 +11,7 @@ plugins {
     id("com.google.gms.google-services")
     id("com.google.firebase.crashlytics")
     id("org.jlleitschuh.gradle.ktlint") version "11.0.0"
+    id("com.github.ben-manes.versions")
 }
 
 kotlin {
