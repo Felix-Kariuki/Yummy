@@ -65,6 +65,9 @@ object Libs {
     object Firebase {
         const val crashlytics = "com.google.firebase:firebase-crashlytics-ktx:18.3.2"
         const val analytics = "com.google.firebase:firebase-analytics-ktx:21.2.0"
+
+
+
     }
 
     object Dagger {
