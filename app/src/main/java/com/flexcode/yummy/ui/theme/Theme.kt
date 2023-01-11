@@ -36,9 +36,13 @@ private val LightColorPalette = lightColors(
 
 @Composable
 fun YummyTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable () -> Unit) {
+    val systemUiController = rememberSystemUiController()
+
     val colors = if (darkTheme) {
+        systemUiController.setStatusBarColor(color = MatteBlack)
         DarkColorPalette
     } else {
+        systemUiController.setStatusBarColor(color = ColorGreen)
         LightColorPalette
     }
 
@@ -48,15 +52,4 @@ fun YummyTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable 
         shapes = Shapes,
         content = content
     )
-
-    val systemUiController = rememberSystemUiController()
-    if (darkTheme) {
-        systemUiController.setStatusBarColor(
-            color = MatteBlack
-        )
-    } else {
-        systemUiController.setStatusBarColor(
-            color = ColorGreen
-        )
-    }
 }
