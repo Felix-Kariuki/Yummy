@@ -14,6 +14,10 @@ plugins {
     id("com.github.ben-manes.versions")
 }
 
+apply {
+    from("$rootDir/base.gradle")
+}
+
 kotlin {
     sourceSets {
         debug {
@@ -138,7 +142,11 @@ dependencies {
     implementation(project(":domain"))
     implementation(project(":common"))
 
-    implementation(Libs.AndroidX.coreKtx)
+    // Navigation
+    ksp(Libs.Navigation.raamcostaDestination)
+    implementation(Libs.Navigation.raamcostaDestinationCore)
+
+    /*implementation(Libs.AndroidX.coreKtx)
     implementation(Libs.AndroidX.Compose.ui)
     implementation(Libs.AndroidX.Compose.material)
     implementation(Libs.AndroidX.Compose.toolingPreview)
@@ -194,7 +202,7 @@ dependencies {
 
     testImplementation(Libs.Testing.mockito)
     androidTestImplementation(Libs.Testing.mockito)
-    androidTestImplementation(Libs.Testing.composeUi)
+    androidTestImplementation(Libs.Testing.composeUi)*/
 
 //    androidTestImplementation "com.google.truth:truth:1.1.3"
 //    testImplementation "junit:junit:4.13.2"

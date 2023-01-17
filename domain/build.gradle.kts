@@ -5,7 +5,13 @@ plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
     id("kotlin-parcelize")
+    id("kotlin-kapt")
+    id("dagger.hilt.android.plugin")
     id("org.jlleitschuh.gradle.ktlint")
+}
+
+apply {
+    from("$rootDir/base.gradle")
 }
 
 android {
@@ -40,7 +46,4 @@ android {
 
 dependencies {
     implementation(project(":common"))
-    implementation(Libs.Coroutines.core)
-
-    implementation(Libs.Retrofit.retrofitConverter)
 }
