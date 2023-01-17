@@ -1,0 +1,61 @@
+import com.flexcode.yummy.buidlsrc.Libs
+
+dependencies{
+
+    implementation(Libs.AndroidX.coreKtx)
+    implementation(Libs.AndroidX.Compose.ui)
+    implementation(Libs.AndroidX.Compose.material)
+    implementation(Libs.AndroidX.Compose.toolingPreview)
+    implementation(Libs.AndroidX.Activity.activityCompose)
+
+
+    // lifecycle
+    implementation(Libs.AndroidX.Lifecycle.runtime)
+    implementation(Libs.AndroidX.Lifecycle.viewModelCompose)
+
+    implementation(Libs.AndroidX.Compose.materialIcons)
+
+    implementation(Libs.Accompanist.flowLayout)
+    implementation(Libs.Accompanist.swipeRefresh)
+    implementation(Libs.Accompanist.systemUi)
+
+    // Navigation
+    implementation(Libs.Navigation.navCompose)
+
+    // Coil
+    implementation(Libs.Coil.coil)
+
+    // firebase
+    implementation(Libs.Firebase.crashlytics)
+    implementation(Libs.Firebase.analytics)
+
+    // Dagger - Hilt
+    implementation(Libs.Dagger.hilt)
+    kapt(Libs.Dagger.hiltCompiler)
+    kapt(Libs.Dagger.androidXHilt)
+    implementation(Libs.Dagger.hiltNavigation)
+
+    // Retrofit
+    implementation(Libs.Retrofit.retrofit)
+    implementation(Libs.Retrofit.retrofitConverter)
+    implementation(Libs.Retrofit.logging)
+
+    // Room
+    implementation(Libs.Room.runtime)
+    kapt(Libs.Room.compiler)
+    implementation(Libs.Room.roomKtx)
+
+    // Timber logging
+    implementation(Libs.Logging.timber)
+
+    // Testing
+    androidTestImplementation(Libs.Testing.truth)
+    androidTestImplementation(Libs.Testing.mockWebServer)
+    testImplementation(Libs.Testing.jUnit)
+    androidTestImplementation(Libs.Testing.testJUnit)
+    androidTestImplementation(Libs.Testing.espresso)
+
+    testImplementation(Libs.Testing.mockito)
+    androidTestImplementation(Libs.Testing.mockito)
+    androidTestImplementation(Libs.Testing.composeUi)
+}

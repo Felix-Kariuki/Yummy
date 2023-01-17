@@ -9,6 +9,10 @@ plugins {
     id("org.jlleitschuh.gradle.ktlint")
 }
 
+apply {
+    from("$rootDir/base.gradle")
+}
+
 android {
     namespace = "com.flexcode.yummy.data"
     compileSdk = SDK.max
@@ -47,29 +51,29 @@ dependencies {
     implementation(project(":domain"))
     implementation(project(":common"))
 
-    implementation(Libs.AndroidX.coreKtx)
-    implementation(Libs.AndroidX.appCompat)
-
-    // Dagger - Hilt
-    implementation(Libs.Dagger.hilt)
-    kapt(Libs.Dagger.hiltCompiler)
-    kapt(Libs.Dagger.androidXHilt)
-    implementation(Libs.Dagger.hiltNavigation)
-
-    // Retrofit
-    implementation(Libs.Retrofit.retrofit)
-    implementation(Libs.Retrofit.retrofitConverter)
-    implementation(Libs.Retrofit.logging)
-
-    // Room
-    implementation(Libs.Room.runtime)
-    kapt(Libs.Room.compiler)
-    implementation(Libs.Room.roomKtx)
-
-    // Testing
-    androidTestImplementation(Libs.Testing.truth)
-    androidTestImplementation(Libs.Testing.mockWebServer)
-    testImplementation(Libs.Testing.jUnit)
-    androidTestImplementation(Libs.Testing.testJUnit)
-    androidTestImplementation(Libs.Testing.espresso)
+//    implementation(Libs.AndroidX.coreKtx)
+//    implementation(Libs.AndroidX.appCompat)
+//
+//    // Dagger - Hilt
+//    implementation(Libs.Dagger.hilt)
+//    kapt(Libs.Dagger.hiltCompiler)
+//    kapt(Libs.Dagger.androidXHilt)
+//    implementation(Libs.Dagger.hiltNavigation)
+//
+//    // Retrofit
+//    implementation(Libs.Retrofit.retrofit)
+//    implementation(Libs.Retrofit.retrofitConverter)
+//    implementation(Libs.Retrofit.logging)
+//
+//    // Room
+//    implementation(Libs.Room.runtime)
+//    kapt(Libs.Room.compiler)
+//    implementation(Libs.Room.roomKtx)
+//
+//    // Testing
+//    androidTestImplementation(Libs.Testing.truth)
+//    androidTestImplementation(Libs.Testing.mockWebServer)
+//    testImplementation(Libs.Testing.jUnit)
+//    androidTestImplementation(Libs.Testing.testJUnit)
+//    androidTestImplementation(Libs.Testing.espresso)
 }
