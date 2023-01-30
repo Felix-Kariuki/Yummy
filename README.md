@@ -9,7 +9,10 @@ A food recipes App Built with Jetpack Compose . The app uses room for local cach
 <img src="./screenshots/welcome_light.png" width="320">&emsp;
 <img src="./screenshots/home_light.png" width="320">&emsp;
 <img src="./screenshots/details_light.png" width="320">&emsp;
-<img src="./screenshots/details_light.png" width="320">
+<img src="./screenshots/details_light.png" width="320">&emsp;
+<img src="./screenshots/in_app_purchase_light.png" width="320">
+
+
 
 - #### Dark Mode
 <img src="./screenshots/welcome_dark.png" width="320">&emsp;
