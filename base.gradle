@@ -48,6 +48,11 @@ dependencies{
     // Timber logging
     implementation(Libs.Logging.timber)
 
+    //Billing
+    implementation(Libs.Billing.billingClient)
+    implementation(Libs.Billing.guavaJre)
+    implementation(Libs.Billing.guavaAndroid)
+
     // Testing
     androidTestImplementation(Libs.Testing.truth)
     androidTestImplementation(Libs.Testing.mockWebServer)

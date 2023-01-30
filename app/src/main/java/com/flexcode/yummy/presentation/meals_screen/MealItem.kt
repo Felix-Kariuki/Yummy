@@ -32,7 +32,7 @@ fun MealItem(
 ) {
     Card(
         modifier = modifier
-            .padding(4.dp)
+            .padding(8.dp)
             .clickable {
                 navigator.navigate(MealDetailsScreenDestination(meals))
             },
@@ -53,7 +53,8 @@ fun MealItem(
                 .build()
             val painter = rememberAsyncImagePainter(model)
             Image(
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier.fillMaxWidth()
+                    .height(150.dp),
                 painter = painter,
                 contentDescription = null,
                 contentScale = ContentScale.FillWidth
