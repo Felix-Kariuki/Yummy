@@ -126,7 +126,7 @@ fun DetailsItem(
 
         Text(
             text = "${meals.strInstructions}:",
-            fontSize = 15.sp,
+            fontSize = 16.sp,
             modifier = Modifier.padding(start = 8.dp, end = 8.dp, bottom = 16.dp)
         )
     }
@@ -166,7 +166,7 @@ fun TestList(
                 ) {
                     drawCircle(Color.Black)
                 }
-                Text(text = it, fontSize = 12.sp)
+                Text(text = it, fontSize = 14.sp)
             }
         }
     }

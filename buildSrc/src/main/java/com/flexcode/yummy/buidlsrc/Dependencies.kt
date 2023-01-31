@@ -2,7 +2,7 @@ package com.flexcode.yummy.buidlsrc
 
 
 object SDK {
-    const val min = 21
+    const val min = 24
     const val max = 33
 }
 
@@ -99,7 +99,9 @@ object Libs {
     object Logging {
         const val timber = "com.jakewharton.timber:timber:5.0.1"
     }
-
+    object Billing {
+        const val inAppPurchases = "com.github.Felix-Kariuki:InAppPurchasesComposeLibrary:0.1.2"
+    }
     object Testing {
         const val truth = "com.google.truth:truth:1.1.3"
         const val mockWebServer = "com.squareup.okhttp3:mockwebserver:4.9.3"

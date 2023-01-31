@@ -28,7 +28,7 @@ fun CategoryItem(
 ) {
     Card(
         modifier = modifier
-            .padding(4.dp),
+            .padding(top = 4.dp, end = 4.dp, start = 4.dp),
         shape = RoundedCornerShape(16.dp),
         elevation = 7.dp,
         backgroundColor = MaterialTheme.colors.background,
@@ -53,7 +53,7 @@ fun CategoryItem(
                 contentDescription = "${category.strCategory}",
                 contentScale = ContentScale.Inside,
                 modifier = modifier
-                    .height(100.dp)
+                    .height(70.dp)
                     .fillMaxWidth()
                     .align(Alignment.CenterHorizontally)
                     .wrapContentSize(),
