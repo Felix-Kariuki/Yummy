@@ -49,9 +49,7 @@ dependencies{
     implementation(Libs.Logging.timber)
 
     //Billing
-    implementation(Libs.Billing.billingClient)
-    implementation(Libs.Billing.guavaJre)
-    implementation(Libs.Billing.guavaAndroid)
+    implementation(Libs.Billing.inAppPurchases)
 
     // Testing
     androidTestImplementation(Libs.Testing.truth)

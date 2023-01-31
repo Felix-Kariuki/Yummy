@@ -2,7 +2,7 @@ package com.flexcode.yummy.buidlsrc
 
 
 object SDK {
-    const val min = 21
+    const val min = 24
     const val max = 33
 }
 
@@ -100,9 +100,7 @@ object Libs {
         const val timber = "com.jakewharton.timber:timber:5.0.1"
     }
     object Billing {
-        const val billingClient = "com.android.billingclient:billing-ktx:5.0.0"
-        const val guavaJre = "com.google.guava:guava:24.1-jre"
-        const val guavaAndroid = "com.google.guava:guava:27.0.1-android"
+        const val inAppPurchases = "com.github.Felix-Kariuki:InAppPurchasesComposeLibrary:0.1.2"
     }
     object Testing {
         const val truth = "com.google.truth:truth:1.1.3"

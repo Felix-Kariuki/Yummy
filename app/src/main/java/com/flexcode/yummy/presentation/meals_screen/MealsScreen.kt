@@ -32,8 +32,8 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.flexcode.inapppurchasescompose.InAppPurchasesHelper
 import com.flexcode.yummy.R
-import com.flexcode.yummy.billing.BillingHelper
 import com.flexcode.yummy.domain.models.Categories
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
@@ -54,8 +54,8 @@ fun MealsScreen(
     )
     val focusManager = LocalFocusManager.current
 
-    val billingPurchaseHelper = BillingHelper(LocalContext.current as Activity)
-    billingPurchaseHelper.billingSetup()
+    val billingPurchaseHelper = InAppPurchasesHelper(LocalContext.current as Activity, "more_recipe_sub")
+    billingPurchaseHelper.setUpBillingPurchases()
 
     Scaffold(
         floatingActionButton = {
@@ -208,14 +208,14 @@ fun MealsScreen(
 }
 
 @Composable
-fun FloatingMoreRecipesButton(billingPurchaseHelper: BillingHelper) {
-    val buyEnabled by billingPurchaseHelper.buyEnabled.collectAsState(false)
+fun FloatingMoreRecipesButton(billingPurchaseHelper: InAppPurchasesHelper) {
+    val purchaseDone by billingPurchaseHelper.purchaseDone.collectAsState(false)
     val productName by billingPurchaseHelper.productName.collectAsState("")
-    val statusText by billingPurchaseHelper.statusText.collectAsState("")
+    val purchaseStatus by billingPurchaseHelper.purchaseStatus.collectAsState("")
 
     Button(
         onClick = {
-            billingPurchaseHelper.makePurchase()
+            billingPurchaseHelper.initializePurchase()
         },
 
         shape = RoundedCornerShape(32.dp),
@@ -224,7 +224,7 @@ fun FloatingMoreRecipesButton(billingPurchaseHelper: BillingHelper) {
             contentColor = MaterialTheme.colors.onSurface
         ),
         modifier = Modifier.wrapContentSize(),
-        enabled = buyEnabled
+        enabled = purchaseDone
     ) {
         Icon(
             Icons.Filled.More,

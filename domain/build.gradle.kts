@@ -1,4 +1,4 @@
-import com.flexcode.yummy.buidlsrc.Libs
+
 import com.flexcode.yummy.buidlsrc.SDK
 
 plugins {
@@ -23,7 +23,6 @@ android {
         targetSdk = SDK.max
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-//        consumerProguardFiles = "consumer-rules.pro"
     }
 
     buildTypes {
