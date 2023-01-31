@@ -51,6 +51,9 @@ dependencies{
     //Billing
     implementation(Libs.Billing.inAppPurchases)
 
+    //leak canary
+    debugImplementation("com.squareup.leakcanary:leakcanary-android:2.10")
+
     // Testing
     androidTestImplementation(Libs.Testing.truth)
     androidTestImplementation(Libs.Testing.mockWebServer)
