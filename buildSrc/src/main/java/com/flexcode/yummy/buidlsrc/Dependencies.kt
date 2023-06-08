@@ -100,7 +100,7 @@ object Libs {
         const val timber = "com.jakewharton.timber:timber:5.0.1"
     }
     object Billing {
-        const val inAppPurchases = "com.github.Felix-Kariuki:InAppPurchasesComposeLibrary:0.1.2"
+        const val inAppPurchases = "com.github.Felix-Kariuki:InAppPurchasesComposeLibrary:0.1.4"
     }
     object Testing {
         const val truth = "com.google.truth:truth:1.1.3"
